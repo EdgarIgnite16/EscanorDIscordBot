@@ -12,16 +12,17 @@ module.exports = {
         if (dMessage.length < 1) {
             return message.reply('Too WEAK');
         }
-        const dmsembed = new Discord.MessageEmbed().setTitle("Bạn nhận được Message từ NGƯỜI LẠ ❤").setColor('#f02bc2').setTimestamp();
+        const dmsembed = new Discord.MessageEmbed().setTitle("Bạn nhận được Message từ NGƯỜI LẠ ❤").setColor('#f02bc2').setFooter("dms private by Escanor").setTimestamp();
         dmsembed.setDescription(`${dMessage}`);
         dUser.send(dmsembed);
-        const dmslog = new Discord.MessageEmbed().setTitle(`DMs Logs `).setColor('RANDOM').setTimestamp();
+        const dmslog = new Discord.MessageEmbed().setTitle(`DMs Logs `).setColor('RANDOM').setFooter("dms private by Escanor").setTimestamp();
         dmslog.addField(`${message.author.username}, you has send an message to: `, dUser)
             .addField(`Description:`, dMessage);
+    
         message.author.send(dmslog);
     
         message.delete()
         
-        
+
     }
 }
