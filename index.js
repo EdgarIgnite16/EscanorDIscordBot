@@ -42,11 +42,11 @@ client.on("message", async message => {
 })
 
 client.on('message', msg => {
-  const cSpamChannelD = client.channels.cache.get(SpamChannel);
+  const SpamChannelD = client.channels.cache.get(SpamChannel);
   if (!SpamChannelD) return;
   else {
     if (msg.content.startsWith("Press F")) {
-      SpamChannelD.send("Press F");
+      msg.channel.send("Press F");
     }
   }
 });
