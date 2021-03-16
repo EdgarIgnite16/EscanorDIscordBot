@@ -45,8 +45,8 @@ client.on('message', msg => {
   const SpamChannelD = client.channels.cache.get(SpamChannel);
   if (!SpamChannelD) return;
   else {
-    if (msg.content.startsWith("Press F")) {
-      msg.channel.send("Press F");
+    if (msg.content.startsWith("812373720042962944")) {
+      msg.channel.send("812373720042962944");
     }
   }
 });
