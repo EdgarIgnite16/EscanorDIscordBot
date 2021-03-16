@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { token , Prefix } = require('./config.json');
+const { token , Prefix , SpamChannel } = require('./config.json');
 const { readdirSync } = require('fs');
 const { join } = require('path');
 
@@ -41,6 +41,13 @@ client.on("message", async message => {
   }
 })
 
+client.on("message" , msg =>{
+  const SpamChannelID = client.channels.cache.get(SpamChannel);
+  if (!SpamChannelID) return;
+  if(msg.content.startsWith("Now you feel my Pain,Lille Kid !!")){
+    msg.channel.send("Now you feel my Pain,Lille Kid !!")
+  }
+});
 
 client.login(config.token);
 
