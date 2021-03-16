@@ -41,7 +41,15 @@ client.on("message", async message => {
   }
 })
 
-
+client.on('message', msg => {
+  const cSpamChannelD = client.channels.cache.get(SpamChannel);
+  if (!SpamChannelD) return;
+  else {
+    if (msg.content.startsWith("Press F")) {
+      SpamChannelD.send("Press F");
+    }
+  }
+});
 
 client.login(config.token);
 
