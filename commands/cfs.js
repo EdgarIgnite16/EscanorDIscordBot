@@ -10,6 +10,7 @@ module.exports = {
     name: "cfs",
     description: "Give confession",
     
+    
     async run (client, msg, args) {
     if(msg.author.bot) return;//khong chap nhan cfs tu bot
     if(msg.channel.type !== 'dm') return;//khong chap nhan tin nao tru tin nhan gui thang truc tiep
@@ -26,7 +27,7 @@ module.exports = {
         .setTitle(`❤--Confession--❤`)
         .setDescription(msg.content.slice(6))
         .setColor('RANDOM')
-        .setFooter(` cfs #${count} • `+"we're loser confession's")
+        .setFooter(`cfs #${count} • `+" WAL confession ")
         .setTimestamp();
         if (msg.attachments.array().length > 0) {
           let attachment = msg.attachments.array()[0];

@@ -13,7 +13,7 @@ module.exports = {
         if(error) return message.channel.send(error);
         if(!args[0]) return message.channel.send('Please specify a location')
 
-        if(result === undefined || result.length === 0) return message.channel.send('**Invalid** location');
+        if(result === undefined || result.length === 0) return message.channel.send('**Không Tìm Thấy Vị Trí !!! **');
 
         var current = result[0].current;
         var location = result[0].location;
