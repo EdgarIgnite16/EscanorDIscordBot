@@ -13,7 +13,7 @@ module.exports = {
         .setTitle("My Pong is ...")
         .setColor("RANDOM")
         .setDescription(`Pong !!! --- Delay:\`${client.ws.ping}\`ms`)
-        .setFooter("⭕-- WAL-- ❌ ")
+        .setFooter("⭕-- WAL--❌ ")
         .setTimestamp()
 
         message.channel.send(ping);
