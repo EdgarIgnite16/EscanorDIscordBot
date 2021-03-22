@@ -12,7 +12,7 @@ module.exports = {
         ping
         .setTitle("My Pong is ...")
         .setColor("RANDOM")
-        .setDescription(`Pong !!! .Delay:\`${client.ws.ping}\`ms`)
+        .setDescription(`Pong !!! --- Delay:\`${client.ws.ping}\`ms`)
         .setFooter("We are Loser")
         .setTimestamp()
 
