@@ -15,7 +15,7 @@ module.exports = {
         .setURL(URL)
         .setImage(avatar)
         .setColor("#27e2e8") 
-        .setFooter("Nice Avatar !!!" + " ❤❤ We are Loser ❤❤ ")
+        .setFooter(" Nice Avatar !!!" + " ❌ WAL ⭕ ")
         .setTimestamp()
         message.channel.send(embed);
     }
