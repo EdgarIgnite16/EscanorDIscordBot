@@ -11,16 +11,20 @@ module.exports = {
             .setColor("#8de815")
             .addField("Server Info", stripIndents`
             **- Name Sever: ** ${message.guild.name}
-            **- Owner Server : ** ${message.guild.owner}
+            **- Owner Server : ** ${message.guild.owner.user.tag}
             **- Location: ** ${message.guild.region}
+
             ---------------------------------------------
+
             **- Tier Boost: ** ${message.guild.premiumTier}
             **- Number of Boost: ** ${message.guild.premiumSubscriptionCount}
             **- Member Count: ** ${message.guild.memberCount} members
             **- Roles Count: ** ${message.guild.roles.cache.size} roles
             **- Emoji Count: ** ${message.guild.emojis.cache.size}
             **- MFA Level of Server : ** ${message.guild.mfaLevel}
+
             ---------------------------------------------
+            
             **- Created At ** \nCreated at ${message.guild.createdAt.toDateString()}      
             **- Joined At **\nJoin at ${message.guild.joinedAt.toDateString()}
             `)
