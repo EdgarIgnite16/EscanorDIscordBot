@@ -16,7 +16,7 @@ module.exports = {
             ---------------------------------------------
             **- Tier Boots: ** ${message.guild.premiumTier}
             **- Number of Boosts: ** ${message.guild.premiumSubscriptionCount}
-            **- Member Count: ** ${message.guild.memberCount} members , ${message.guild.members.cache.filter(member => member.user.bot).size} bot
+            **- Member Count: ** ${message.guild.memberCount} members
             **- Roles Count: ** ${message.guild.roles.cache.size} roles
             **- Emoji Count: ** ${message.guild.emojis.cache.size}
             **- MFA Level of Server : ** ${message.guild.mfaLevel}
