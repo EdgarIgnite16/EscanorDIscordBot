@@ -11,7 +11,7 @@ module.exports = {
             .setColor("#8de815")
             .addField("Server Info", stripIndents`
             **- Name Sever: ** ${message.guild.name}
-            **- Owner Server : ** ${message.guild.owner}
+            **- Owner Server : ** ${message.guild.owner.user.tag}
             **- Location: ** ${message.guild.region}
             ---------------------------------------------
             **- Tier Boots: ** ${message.guild.premiumTier}
