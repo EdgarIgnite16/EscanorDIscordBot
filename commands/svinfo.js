@@ -14,8 +14,8 @@ module.exports = {
             **- Owner Server : ** ${message.guild.owner}
             **- Location: ** ${message.guild.region}
             ---------------------------------------------
-            **- Tier Boots: ** ${message.guild.premiumTier}
-            **- Number of Boosts: ** ${message.guild.premiumSubscriptionCount}
+            **- Tier Boost: ** ${message.guild.premiumTier}
+            **- Number of Boost: ** ${message.guild.premiumSubscriptionCount}
             **- Member Count: ** ${message.guild.memberCount} members
             **- Roles Count: ** ${message.guild.roles.cache.size} roles
             **- Emoji Count: ** ${message.guild.emojis.cache.size}
@@ -26,7 +26,7 @@ module.exports = {
             `)
             
             
-            .setFooter(client.user.username, client.user.avatarURL)
+            .setFooter("User Call Bot: " + message.author.username)
             .setTimestamp()
         message.channel.send(embed)
 
