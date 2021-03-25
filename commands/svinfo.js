@@ -26,7 +26,7 @@ module.exports = {
             `)
             
             
-            .setFooter(client.user.username, client.user.avatarURL)
+            .setFooter(message.author.username)
             .setTimestamp()
         message.channel.send(embed)
 
