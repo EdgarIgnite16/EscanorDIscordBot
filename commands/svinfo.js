@@ -4,7 +4,7 @@ module.exports = {
     name: "svinfo",
     desciption: "Find Your Sever Info by command",
 
-    async run (client, message, args) {
+    async run (client, message) {
 
         let embed = new Discord.MessageEmbed()
             .setThumbnail(message.guild.iconURL())
