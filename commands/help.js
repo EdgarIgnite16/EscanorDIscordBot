@@ -8,7 +8,6 @@ module.exports = {
 
         //Sort your commands into categories, and make seperate embeds for each category
         const helpEmbed = new Discord.MessageEmbed()
-        helpEmbed
             .setTitle('Commands List')
             .setColor('#27e2e8')
             .setDescription('Dùng Prefix `e!` + `<lệnh>` để gọi lệnh cho bot.' )
