@@ -20,7 +20,7 @@ module.exports = {
             **- Number of Boost: ** ${message.guild.premiumSubscriptionCount}
             **- Member Count: ** ${message.guild.memberCount} members
             **- Roles Count: ** ${message.guild.roles.cache.size} roles
-            **- Emoji Count: ** ${message.guild.emojis.cache.size}
+            **- Emoji Count: ** ${message.guild.emojis.cache.size} emoji
             **- MFA Level of Server : ** ${message.guild.mfaLevel}
 
             ---------------------------------------------
