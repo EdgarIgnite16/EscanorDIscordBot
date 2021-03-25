@@ -7,29 +7,26 @@ module.exports = {
     async run (client, message, args) {
 
         let embed = new Discord.MessageEmbed()
-            
-            .setColor("#8de815")
             .setThumbnail(message.guild.iconURL())
+            .setColor("#8de815")
             .addField("Server Info", stripIndents`
-            **- Your Name: ** ${message.author.username}
             **- Name Sever: ** ${message.guild.name}
-            **- Owner Server :** ${message.guild.owner}
+            **- Owner Server : ** ${message.guild.owner.user.tag}
             **- Location: ** ${message.guild.region}
             ---------------------------------------------
-            **- MFA Level: ** ${message.guild.mfaLevel}
-            **- Member Count: ** ${message.guild.memberCount}/${message.guild.maximumMembers}
-            **- Roles Count:** ${message.guild.roles.cache.size} roles
             **- Tier Boots: ** ${message.guild.premiumTier}
             **- Number of Boosts: ** ${message.guild.premiumSubscriptionCount}
-            ---------------------------------------------
-            **- AFK channel: ** ${message.guild.afkChannel}
-            **- AFK Timeout: ** ${message.guild.afkTimeout}
+            **- Member Count: ** ${message.guild.memberCount} members , ${message.guild.members.cache.filter(member => member.user.bot).size} bot
+            **- Roles Count: ** ${message.guild.roles.cache.size} roles
+            **- Emoji Count: ** ${message.guild.emojis.cache.size}
+            **- MFA Level of Server : ** ${message.guild.mfaLevel}
             ---------------------------------------------
             **- Created At ** \nCreated at ${message.guild.createdAt.toDateString()}      
             **- Joined At **\nJoin at ${message.guild.joinedAt.toDateString()}
             `)
-
-            .setFooter('Sever Info Command By Escanor')
+            
+            
+            .setFooter(client.user.username, client.user.avatarURL)
             .setTimestamp()
         message.channel.send(embed)
 
