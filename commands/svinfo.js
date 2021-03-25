@@ -16,12 +16,12 @@ module.exports = {
 
             ---------------------------------------------
 
-            **- Tier Boost: ** ${message.guild.premiumTier}
-            **- Number of Boost: ** ${message.guild.premiumSubscriptionCount}
+            **- Tier Boost: ** tier ${message.guild.premiumTier}
+            **- Number of Boost: ** ${message.guild.premiumSubscriptionCount} boost
             **- Member Count: ** ${message.guild.memberCount} members
             **- Roles Count: ** ${message.guild.roles.cache.size} roles
             **- Emoji Count: ** ${message.guild.emojis.cache.size} emoji
-            **- MFA Level of Server : ** ${message.guild.mfaLevel}
+            **- MFA Level of Server : ** level ${message.guild.mfaLevel} 
 
             ---------------------------------------------
             
