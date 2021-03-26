@@ -5,7 +5,7 @@ module.exports = {
     desciption: "Find Your Sever Info by command",
 
     async run (client, message) {
-
+        message.delete();
         let embed = new Discord.MessageEmbed()
             .setThumbnail(message.guild.iconURL())
             .setTitle("Server Info Commands")
