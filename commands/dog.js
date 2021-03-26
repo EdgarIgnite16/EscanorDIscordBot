@@ -13,7 +13,7 @@ module.exports = {
       .setImage(response.body.url)
       .setColor("RANDOM")
       .setFooter(`woof`)
-      .setURL(response.body.url);
+      .setFooter(`woof` + "- User Call Bot: " + message.author.username)
   message.channel.send(embed);
     })
     }
