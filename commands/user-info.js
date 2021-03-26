@@ -4,7 +4,7 @@ module.exports = {
     desciption: "get infos of user",
 
 
-  async  run(client, message, args) {
+  async run(client, message, args) {
         message.delete();
         //check if more than 1 user is mentioned
         if (args.length > 1) return message.channel.send('Only mention one user!').then((sent) => {
