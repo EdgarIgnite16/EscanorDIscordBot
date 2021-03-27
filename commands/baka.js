@@ -5,9 +5,7 @@ module.exports = {
     name: "baka",
     description: "BAKA!!!",
     async run( client , message , args ){
-        
         const user = message.mentions.users.first();
-        message.delete();
         superagent.get('https://nekos.life/api/v2/img/baka')
         .end((err, response) => {
       const embed = new Discord.MessageEmbed()
@@ -17,7 +15,7 @@ module.exports = {
       .setColor(`RANDOM`)
       .setFooter(`idiot!` + "- User Call Bot: " + message.author.username)
       .setURL(response.body.url);
-  message.channel.send(embed);
+        message.channel.send(embed);
     })
 
     }
