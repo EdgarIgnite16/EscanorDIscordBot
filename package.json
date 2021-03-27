@@ -65,6 +65,7 @@
     "tiny-emitter": "^2.1.0",
     "setimmediate": "^1.0.5",
     "sshpk": "^1.16.1",
+    "superagent": "^3.0.1",
     "tunnel-agent": "^0.6.0",
     "typed-function": "^2.0.0",
     "tough-cookie": "^2.5.0",
