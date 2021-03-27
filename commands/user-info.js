@@ -4,7 +4,7 @@ module.exports = {
     desciption: "get infos of user",
 
 
-  async run(client, message, args) {
+  async  run(client, message, args) {
         message.delete();
         //check if more than 1 user is mentioned
         if (args.length > 1) return message.channel.send('Only mention one user!').then((sent) => {
@@ -29,15 +29,15 @@ module.exports = {
             if (member) {
                 let embed = new Discord.MessageEmbed()
                     .setColor("RANDOM")
-                    .setTitle("User Info")
+                    .setTitle("**🧾 User Info Command 🧾**")
+                    .setDescription("**All information about **`"+ `${member.user.username}` + "`** is here !**" )
                     .setThumbnail(member.user.displayAvatarURL())
                     .addField("**Username:**", `${member.user.username}`, true)
                     .addField("**Discriminator:**", `#${member.user.discriminator}`, true)
                     .addField("**ID:**", `${member.user.id}`, true)
-                    .addField("**Status:**", `${member.user.presence.status}`, true)
                     .addField("**Joined On:**", `${member.joinedAt.toLocaleString()}`, true)
                     .addField("**Created On:**", `${member.user.createdAt.toLocaleString()}`, true)
-                    .setDescription(`${member.roles.cache.map(role => role.toString()).join(' ')}`)
+                    .addField("**Role: **",`${member.roles.cache.map(role => role.toString()).join(' ')}`)
                     .setFooter("User Call Bot: " + message.author.username)
                     .setTimestamp()
 
@@ -47,7 +47,7 @@ module.exports = {
                     setTimeout(() => {
                         sent.delete();
                     }, 5000);
-                });//send a message to the channel if the user doesn't exist
+                });
             }
         }
     }
