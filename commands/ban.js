@@ -11,21 +11,37 @@ module.exports = {
                 return await message.channel.send({embed: {
                     color: 16734039,
                     description: "Mention a valid member!"
-                }})
+                }}).then((message) =>{
+                    setTimeout(() =>{
+                        message.delete();
+                    }, 10000);
+                   });
             if (!mentioned.bannable)
                 return await message.channel.send({embed: {
                     color: 16734039,
                     description: "You cannot ban this member!"
-                }})  
+                }}).then((message) =>{
+                    setTimeout(() =>{
+                        message.delete();
+                    }, 10000);
+                   });
                 
             if (message.author === mentioned) {
                return await message.channel.send({embed: {
                     color: 16734039,
                     description: "You can't ban yourself!"
-                }})
+                }}).then((message) =>{
+                    setTimeout(() =>{
+                        message.delete();
+                    }, 10000);
+                   });
             }
             if (!reason)
-                reason = "No reason provided!";
+                reason = "No reason provided!".then((message) =>{
+                    setTimeout(() =>{
+                        message.delete();
+                    }, 10000);
+                   });
             
             mentioned.ban(reason);
             await message.channel.send({embed: {

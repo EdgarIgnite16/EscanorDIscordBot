@@ -12,19 +12,36 @@ module.exports = {
                     color: 16734039,
                     description: "Mention a valid member!"
                 }})
+                .then((message) =>{
+                    setTimeout(() =>{
+                        message.delete();
+                    }, 10000);
+                   });
             if (!mentioned.kickable)
                 return await message.channel.send({embed: {
                     color: 16734039,
                     description: "You cannot kick this member!"
-                }})   
+                }}).then((message) =>{
+                    setTimeout(() =>{
+                        message.delete();
+                    }, 10000);
+                   });
             if (message.author === mentioned) {
                return await message.channel.send({embed: {
                     color: 16734039,
                     description: "You cant kick yourself!"
-                }})
+                }}).then((message) =>{
+                    setTimeout(() =>{
+                        message.delete();
+                    }, 10000);
+                   });
             }
             if (!reason)
-                reason = "No reason provided!";
+                reason = "No reason provided!".then((message) =>{
+                    setTimeout(() =>{
+                        message.delete();
+                    }, 10000);
+                   });
             
             mentioned.kick(reason);
             await message.channel.send({embed: {
