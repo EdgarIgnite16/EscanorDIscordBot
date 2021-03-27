@@ -6,8 +6,9 @@ module.exports = {
     name: "kiss",
     description: "kiss someone ",
     async run(client,message,args){
-        message.delete();
+        
         const user = message.mentions.users.first();
+        message.delete();
         if(!user)
             return message.channel.send({embed: {
             color: 16734039,

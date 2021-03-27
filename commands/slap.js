@@ -4,8 +4,9 @@ module.exports ={
     name:"slap",
     desciption:"Slap SomeOne !",
     async run(client,message,args){
-        message.delete();
+      
         const user = message.mentions.users.first();
+        message.delete();
             if(!user) return message.channel.send({embed: {
                 color: 16734039,
                 description: "You must mention someone to slap!"
