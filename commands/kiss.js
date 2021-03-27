@@ -6,6 +6,7 @@ module.exports = {
     name: "kiss",
     description: "kiss someone ",
     async run(client,message,args){
+        message.delete();
         const user = message.mentions.users.first();
         if(!user)
             return message.channel.send({embed: {
@@ -26,7 +27,7 @@ module.exports = {
           .setImage(response.body.url)
           .setColor("RANDOM")
           .setDescription((user.toString() + " got a kiss from " + message.author.toString()))
-          .setFooter(`this is so cute`)
+          .setFooter(`this is so cute`+ "- User Call Bot: " + message.author.username)
           .setURL(response.body.url);
       message.channel.send(embed);
         })

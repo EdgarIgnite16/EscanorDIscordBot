@@ -31,7 +31,7 @@ module.exports ={
               .setImage(response.body.url)
               .setColor(`RANDOM`)
               .setDescription((user.toString() + " got slapped by " + message.author.toString()))
-              .setFooter(`That must hurt ._.`)
+              .setFooter(`That must hurt ._.`+ "- User Call Bot: " + message.author.username)
               .setURL(response.body.url);
                 message.channel.send(embed);
             })
