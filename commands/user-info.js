@@ -5,7 +5,7 @@ module.exports = {
 
 
   async  run(client, message, args) {
-        message.delete();
+       
         //check if more than 1 user is mentioned
         if (args.length > 1) return message.channel.send('Only mention one user!').then((sent) => {
             setTimeout(() => {
@@ -24,7 +24,7 @@ module.exports = {
         if (args[0]) {
             //get the first user mentioned
             let member = message.mentions.members.first()
-           
+            message.delete();
             //if the member exists create an embed with info about that user and send it to the channel
             if (member) {
                 let embed = new Discord.MessageEmbed()
