@@ -35,9 +35,8 @@ module.exports = {
         .setTitle(`8Ball Bủh Bủh lmeo !`)
         .setThumbnail("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLtNCR2P2prQ_rTY1f0eCFA87jXM0cA6imusO8bPzcx_8eFO0GqQEKAcrQOBLb9T0Y2IU&usqp=CAU")
         .addField("Best Question of Day !🎉", stripIndent`
-        \n
         **❓ Your Question:**\n${question}
-        
+        \n
         **📫 My reply: **\n${response}
         `)
         .setTimestamp()
