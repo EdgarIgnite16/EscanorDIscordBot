@@ -8,7 +8,7 @@ module.exports = {
         let embed = new Discord.MessageEmbed()
             .setThumbnail(message.guild.iconURL())
             .setTitle("Help Commands !")
-            .setDescription("**Nhập Prefix ``e!``+``<Lệnh>`` để sử dụng **")
+            .setDescription("**Nhập Prefix ``ee!``+``<Lệnh>`` để sử dụng **")
             .setColor("#8de815")
             .addField("🔐 Moderator:"," ``svinfo`` | ``user-info`` | ``ban`` | ``kick``")
             .addField("🧾 Feature:"," ``avatar`` | ``say`` | ``dms`` | ``cfs`` | ``weather`` | ``clear`` | ``ping``")
