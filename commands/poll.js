@@ -20,6 +20,7 @@ module.exports = {
                 const pollTopic = await message.channel.send({embed})
                     await pollTopic.react(`✅`);
                     await pollTopic.react(`👌`);
+                    await pollTopic.react(`😶`);
                     await pollTopic.react(`🤔`);
                     await pollTopic.react(`👀`);
                     await pollTopic.react(`❌`);
