@@ -11,7 +11,7 @@ module.exports = {
             .setTitle("Help Commands !")
             .setDescription("**Nhập Prefix ``a!``+``<Lệnh>`` để sử dụng **")
             .setColor("#8de815")
-            .addField("🔐 Moderator:"," ``svinfo`` | ``user-info`` | ``ban`` | ``kich``")
+            .addField("🔐 Moderator:"," ``svinfo`` | ``user-info`` | ``ban`` | ``kick``")
             .addField("🧾 Feature:"," ``avatar`` | ``say`` | ``dms`` | ``cfs`` | ``weather`` | ``clear`` | ``ping``")
             .addField("🎆 Fun:"," ``8ball`` | ``iq`` | ``meme`` | ``slap`` | ``kiss`` | ``hug`` | ``baka``")
             .addField("⛔ NSFW:"," ``ass`` | ``anal`` | ``blowjob`` | ``boobs`` | ``cum`` | ``ero`` | ``erofeet`` | ``foxgirl``")
