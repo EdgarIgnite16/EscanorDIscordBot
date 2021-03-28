@@ -3,7 +3,7 @@ const axios = require('axios');
 
 
 module.exports = {
-    name:"chat",
+    name:"AIchat",
     desciption: "ai chat",
 
     async run(client, message ,args){
