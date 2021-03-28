@@ -14,7 +14,7 @@ module.exports = {
         message.delete();
         let embed = new Discord.MessageEmbed()
             .setThumbnail(`https://i.pinimg.com/736x/81/a1/68/81a168b12a2d827c03dbf2f5c22c4761.jpg`)
-           
+            .setColor('RANDOM')
             .addField('**💭You say:**',`${question}`)
             .addField('**📫My Answer: **',(res.data.cnt))
            
