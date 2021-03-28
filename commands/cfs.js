@@ -27,7 +27,7 @@ module.exports = {
         .setTitle(`❤--Confession--❤`)
         .setDescription(msg.content.slice(6))
         .setColor('RANDOM')
-        .setFooter(`Number of cfs count on day #${count} • `+" WAL confession ")
+        .setFooter(`cfs #${count} `+" WAL confession ")
         .setTimestamp();
         if (msg.attachments.array().length > 0) {
           let attachment = msg.attachments.array()[0];
