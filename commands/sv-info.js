@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const { stripIndents } = require("common-tags");
 module.exports = {
-    name: "svinfo",
+    name: "sv-info",
     desciption: "Find Your Sever Info by command",
 
     async run (client, message) {
