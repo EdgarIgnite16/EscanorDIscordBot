@@ -10,7 +10,7 @@ module.exports = {
         superagent.get('https://nekos.life/api/v2/img/baka')
         .end((err, response) => {
       const embed = new Discord.MessageEmbed()
-      .setTitle("BAKA!!! " + user.username)
+      .setTitle("BAKA!!! ")
       .setDescription("ばかやろう "+ user.toString())
       .setImage(response.body.url)
       .setColor(`RANDOM`)
