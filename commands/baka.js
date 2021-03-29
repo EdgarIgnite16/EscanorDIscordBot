@@ -16,7 +16,7 @@ module.exports = {
         .setDescription("ばかやろう "+ user.username)
         .setImage(response.body.url)
         .setColor(`RANDOM`)
-        .setFooter(`idiot!` + "- User Call Bot: " + message.author.username)
+        .setFooter(`idiot!`)
         .setURL(response.body.url);
         message.channel.send(embed);
       })
