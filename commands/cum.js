@@ -19,6 +19,10 @@ module.exports = {
         .setFooter(`Tags: cum `+ "- User Call Bot: " + message.author.username)
         .setURL(response.body.url);
         message.channel.send(embed);
-})  
+        }).catch((err) => message.channel.send({embed: {
+            color: 16734039,
+            description: "Something went wrong... :cry:"
+        }}));
+
     }
 }
