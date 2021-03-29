@@ -28,13 +28,14 @@ module.exports = {
         "Tao Chịu",
         "Đang Search..........",
         "Thử Lại đi câu này t nghe không rõ...",
+        "Mình cũng như bạn và bạn cũng như mình.Mình không biết!"
       ];
       let response =
         responses[Math.floor(Math.random() * responses.length - 1)];
       let Embed = new MessageEmbed()
         .setTitle(`8Ball Bủh Bủh lmeo !`)
         .setThumbnail("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLtNCR2P2prQ_rTY1f0eCFA87jXM0cA6imusO8bPzcx_8eFO0GqQEKAcrQOBLb9T0Y2IU&usqp=CAU")
-        .addField("Best Question of Day !🎉", stripIndent`
+        .addField("I am a Cool Cat ~~~>", stripIndent`
         **❓ Your Question:**\n${question}
         \n**📫 My reply: **\n${response}
         `)
