@@ -21,7 +21,7 @@ module.exports = {
           .setFooter(`Tags: anal ` + "- User Call Bot: " + message.author.username)
           .setURL(response.body.url);
       message.channel.send(embed);
-        }).
+        })
 
     }
 }
