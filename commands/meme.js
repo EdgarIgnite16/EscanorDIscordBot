@@ -33,6 +33,12 @@ module.exports = {
                         name: 'meme.png'
                     }]
                 }).then(() => message.channel.stopTyping());
-        })
+        }).catch(function (err)  {
+            message.channel.send({embed: {
+               color: 16734039,
+               description: "Something went wrong... :cry:"
+               }})
+            return;
+          });
     }
 }
