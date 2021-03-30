@@ -36,7 +36,7 @@ module.exports = {
       let Embed = new MessageEmbed()
         .setTitle(`8Ball Bủh Bủh lmeo !`)
         .setThumbnail("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLtNCR2P2prQ_rTY1f0eCFA87jXM0cA6imusO8bPzcx_8eFO0GqQEKAcrQOBLb9T0Y2IU&usqp=CAU")
-        .addField("I am a Cool Cat ~~~>", stripIndent`
+        .addField("I am a HANDSOME COOL Cat ~~~~~>", stripIndent`
         **❓ Your Question:**\n${question}
         \n**📫 My reply: **\n${response}
         `)
