@@ -22,16 +22,17 @@ module.exports = {
         "Chắn chắn có ! ",
         "Có nhưng không ",
         "100%",
-        "99%",
+        "99,99%",
         "50-50",
         "49-51",
         "Tao Chịu",
         "Đang Search..........",
         "Thử Lại đi câu này t nghe không rõ...",
-        "Mình cũng như bạn và bạn cũng như mình.Mình không biết!"
+        "Mình cũng như bạn và bạn cũng như mình.Mình không biết!",
+        "Không nhé",
+        "Bạn đừng hỏi tôi câu đó não tôi đã tới giới hạn tột đỉnh , nó sắp nổ tung vì câu hỏi của bạn",
       ];
-      let response =
-        responses[Math.floor(Math.random() * responses.length - 1)];
+      let response = responses[Math.floor(Math.random() * responses.length - 1)];
       let Embed = new MessageEmbed()
         .setTitle(`8Ball Bủh Bủh lmeo !`)
         .setThumbnail("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLtNCR2P2prQ_rTY1f0eCFA87jXM0cA6imusO8bPzcx_8eFO0GqQEKAcrQOBLb9T0Y2IU&usqp=CAU")
