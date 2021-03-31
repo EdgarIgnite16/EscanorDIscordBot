@@ -72,6 +72,7 @@
     "tough-cookie": "^2.5.0",
     "tunnel-agent": "^0.6.0",
     "tweetnacl": "^1.0.3",
+    "twemoji-parser": "^13.0.0",
     "typed-function": "^2.0.0",
     "uri-js": "^4.4.1",
     "uuid": "^3.4.0",
