@@ -9,7 +9,7 @@ module.exports = {
         if (!emoji) return message.channel.send({
             embed: {
                 color: 16734039,
-                description: "Please insert an emoji, quack!"
+                description: "Please insert an emoji !"
             }
         });
         let custom = Discord.Util.parseEmoji(emoji);
