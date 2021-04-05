@@ -3,7 +3,7 @@ module.exports = {
     description: "Clears messages",
 
     async run (client, message, args) {
-
+        if (message.member.hasPermission("MANAGE_CHANNELS")) {
         const amount = args.join(" ");
 
         if(!amount) return message.channel.send('Vui lòng nhập số lượng tin nhắn cần xoá !').then((sent) => {
@@ -33,5 +33,6 @@ module.exports = {
                 sent.delete();
             }, 5000);
         });
+        }
     }
 }
