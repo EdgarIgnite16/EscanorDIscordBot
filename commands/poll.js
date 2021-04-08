@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "poll",
+    name: "menhlenhtoicao",
     description: "Create a poll",
     async run(client , message ,args){
         const pollmessage = await args.join(" ");
@@ -12,7 +12,7 @@ module.exports = {
                 description: "You must provide a text to ask a question!"
             }})
              const embed = new Discord.MessageEmbed()
-                .setTitle(":ballot_box: Bang chủ cái bang `" +`${message.author.username}` + "` đã mở cuộc họp thượng đỉnh ! :ballot_box:",)
+                .setTitle(":ballot_box: Bang chủ cái bang `" +`${message.author.username}` + "` đã mở cuộc họp thượng đỉnh !",)
                 .setColor("RANDOM")
                 .setDescription(pollmessage)
                 .setFooter("Lưu ý : React bên đưới để phản hồi  • Vote created by " + `${message.author.username}`,)

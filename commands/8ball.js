@@ -28,7 +28,7 @@ module.exports = {
         "Tao Chịu",
         "Đang Search..........",
         "Thử Lại đi câu này t nghe không rõ...",
-        "Mình cũng như bạn và bạn cũng như mình.Mình không biết!",
+        "Mình cũng như bạn và bạn cũng như mình.\nMình không biết!",
         "Không nhé",
         "Bạn đừng hỏi tôi câu đó não tôi đã tới giới hạn tột đỉnh , nó sắp nổ tung vì câu hỏi của bạn",
       ];

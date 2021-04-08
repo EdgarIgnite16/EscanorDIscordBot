@@ -16,7 +16,7 @@ const reactionRoleManager = new ReactionRoleManager(client, {
 
 const bot = new Discord.Client({ partials: ["MESSAGE" , "CHANNEL" ,"REACTION"]});
 */
-const config = require('./config.json');
+const  config = require('./config.json');
 let prefix = (config.Prefix);
 
 client.commands= new Discord.Collection();
