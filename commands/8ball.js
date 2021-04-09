@@ -17,6 +17,7 @@ module.exports = {
       let responses = [
         "Có",
         "Không",
+        "Không nhé",
         "Đoán Xem",
         "Chắc chắn không ! ",
         "Chắn chắn có ! ",
@@ -29,8 +30,7 @@ module.exports = {
         "Đang Search..........",
         "Thử Lại đi câu này t nghe không rõ...",
         "Mình cũng như bạn và bạn cũng như mình.\nMình không biết!",
-        "Không nhé",
-        "Bạn đừng hỏi tôi câu đó não tôi đã tới giới hạn tột đỉnh , nó sắp nổ tung vì câu hỏi của bạn",
+        "Bạn đừng hỏi tôi câu đó não tôi đã tới giới hạn tột đỉnh , nó sắp nổ tung vì câu hỏi của bạn"
       ];
       let response = responses[Math.floor(Math.random() * responses.length - 1)];
       let Embed = new MessageEmbed()
