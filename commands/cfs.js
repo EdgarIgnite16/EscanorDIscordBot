@@ -14,7 +14,9 @@ module.exports = {
     async run (client, msg, args) {
     if(msg.author.bot) return;//khong chap nhan cfs tu bot
     if(msg.channel.type !== 'dm') return;//khong chap nhan tin nao tru tin nhan gui thang truc tiep
-    if(msg.content.length > 1024 ) return msg.channel.send ('cfs chỉ được gửi dưới 1024 kí tự !');
+    if(msg.content.length < 1 ) return msg.channel.send ('Hãy nhập nội dung để gửi !');
+    else{
+      if(msg.content.length > 1024 ) return msg.channel.send ('cfs chỉ được gửi dưới 1024 kí tự !');
     else{
       await msg.react ('💕');
       msg.channel.send('Đã gửi confesstion thành công !');
@@ -46,5 +48,6 @@ module.exports = {
     cfsChannel.send(embed);
     fs.writeFileSync('./count.json', JSON.stringify({ count: count }));
         }
+    }
     }
 }
