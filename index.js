@@ -29,6 +29,7 @@ for (const file of commandFiles) {
     const command = require(join(__dirname, "commands", `${file}`));
     client.commands.set(command.name, command);
 }
+
 //event
 for (const file of eventFiles) {
   const event = require(`./events/${file}`);

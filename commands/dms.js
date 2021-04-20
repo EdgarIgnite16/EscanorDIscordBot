@@ -7,10 +7,11 @@ module.exports = {
         let dUser =
             message.guild.member(message.mentions.users.first()) ||
             message.guild.members.get(args[0]);
+            message.delete();
         if (!dUser) return message.channel.send("Can't find user!");
         let dMessage = args.join(' ').slice(22);
         if (dMessage.length < 1) {
-            return message.reply('Too WEAK');
+            return message.reply('Try again');
         }
         const dmsembed = new Discord.MessageEmbed().setTitle("Bạn đã nhận được Message từ NGƯỜI LẠ ❤").setColor('#f02bc2').setFooter("DMs Private by Escanor 🔒 ").setTimestamp();
         dmsembed.setDescription(`${dMessage}`);
