@@ -48,6 +48,8 @@ module.exports = {
                 color: 3447003,
                 title: ":scream: " + mentioned.displayName + " has been Banned! :scream:"
             }});     
+        }else{
+            message.reply('bạn không có quyền thực thi lệnh này');
         }
     }
 }

@@ -3,19 +3,7 @@ const { readdirSync } = require('fs');
 const { join } = require('path');
 const client = new Discord.Client();
 const { token , Prefix , Reaction} = require('./config.json');
-/*
-const { ReactionRoleManager } = require('discord.js-collector'); 
-const client = new Client();
-const reactionRoleManager = new ReactionRoleManager(client, {
-    //We create a reaction role manager that'll handle everything related to reaction roles
-    storage: true, // Enable reaction role store in a Json file
-    path: __dirname + '/roles.json', // Where will save the roles if store is enabled
-    mongoDbLink: 'url mongoose link', // See here to see how setup mongoose: https://github.com/IDjinn/Discord.js-Collector/tree/dev/examples/reaction-role-manager/Note.md & https://medium.com/@LondonAppBrewery/how-to-download-install-mongodb-on-windows-4ee4b3493514
-   });
 
-
-const bot = new Discord.Client({ partials: ["MESSAGE" , "CHANNEL" ,"REACTION"]});
-*/
 const  config = require('./config.json');
 let prefix = (config.Prefix);
 
@@ -55,43 +43,6 @@ client.on("message", async message => {
   }
 })
 
-/*
-//reaction role
-client.on('message', async (message) => {
-    if (message.member.hasPermission("ADMINISTRATOR")){
-    const client = message.client;
-    const args = message.content.split(' ').slice(1);
-    // Example
-    // >createReactionRole @role :emoji: MessageId
-    if (message.content.startsWith('e!ReactionRoles')) {
-     const role = message.mentions.roles.first();
-     if (!role)
-      return message
-       .reply('You need mention a role')
-       .then((m) => m.delete({ timeout: 1_000 }));
-   
-     const emoji = args[1];
-     if (!emoji)
-      return message
-       .reply('You need use a valid emoji.')
-       .then((m) => m.delete({ timeout: 1_000 }));
-   
-     const msg = await message.channel.messages.fetch(args[2] || message.id);
-     if (!role)
-      return message
-       .reply('Message not found!')
-       .then((m) => m.delete({ timeout: 1_000 }));
-   
-     reactionRoleManager.addRole({
-      message: msg,
-      role,
-      emoji,
-     });
-     message.reply('Done').then((m) => m.delete({ timeout: 500 }));
-    }
-    }
-   });
-*/
 //token
 client.login(config.token);
 
