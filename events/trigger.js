@@ -1,8 +1,8 @@
 module.exports = { 
     name:"message",
     execute(message){
-        if(message.content.includes("ed") || message.content.includes("Ed")){
-            return message.channel.send("Vua ăn Hại , Coder Hạng Bét , Lươn Chúa !");
+        if(message.content.includes("edgar") || message.content.includes("Edgar")){
+            return message.channel.send("Vua ăn Hại , Vua lì đòn , Vua Xàm , Vua sợ vợ ..v..vv. !");
         }
         
     }
