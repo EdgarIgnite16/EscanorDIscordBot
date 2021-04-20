@@ -13,12 +13,12 @@ module.exports = {
         let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
         if(!tomute) return message.reply("Không tìm thấy người dùng.");
         if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Nó quá mạnh không thể làm gì được");
-        let muterole = message.guild.roles.cache.find(guild => guild.name === 'Tù Nhân');
+        let muterole = message.guild.roles.cache.find(guild => guild.name === 'Muted');
         //start of create role
         if(!muterole){
           try{
             muterole = await message.guild.cache.createRole({
-              name: "Tù Nhân",
+              name: "Muted",
               color: "#000000",
               permissions:[]
             })
