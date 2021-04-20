@@ -11,6 +11,8 @@ module.exports = {
         //e!tempmute @user 1s/m/h/d
 
         let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
+        
+        
         if(!tomute) return message.reply("Không tìm thấy người dùng.");
         if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Nó quá mạnh không thể làm gì được");
         let muterole = message.guild.roles.cache.find(guild => guild.name === 'Muted');
@@ -37,7 +39,7 @@ module.exports = {
         if(!mutetime) return message.reply("Bạn chưa nhập thời gian 😐😐😐");
         
         await(tomute.roles.add(muterole.id));
-        message.channel.send(`<@${tomute.id}> đã bị câm nín trong ${ms(ms(mutetime))} 🤬🤬`);
+        message.channel.send(`<@${tomute.id}> đã bị câm nín bởi `+`**${message.member.displayName}**`+` 🤬🤬 \n<@${tomute.id}> ơi ! Bạn sẽ sớm được thả thôi ahihi !`);
         
 
     
