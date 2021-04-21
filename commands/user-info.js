@@ -37,7 +37,7 @@ module.exports = {
                     .addField("**ID:**", `${member.user.id}`, true)
                     .addField("**Joined On:**", `${member.joinedAt.toLocaleString()}`, true)
                     .addField("**Created On:**", `${member.user.createdAt.toLocaleString()}`, true)
-                    .addField("**Permission:**",`${member.roles.cache.map(role => role.toString()).join(' ')}`)
+                    .addField("**Roles list:**",`${member.roles.cache.map(role => role.toString()).join(' ')}`)
                     .setFooter("User Call Bot : " + message.author.username)
                     .setTimestamp()
 
