@@ -4,7 +4,7 @@ module.exports = {
     name: "avatar",
     description: "Brodcast someone's avatar",
 
-    async run (client, message, args) {
+    async run (message) {
     if(message.channel.type === 'dm') return;
         let member = message.mentions.users.first() || message.author
 

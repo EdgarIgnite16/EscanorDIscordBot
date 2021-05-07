@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 module.exports = {
     name: "dms",
     description: "Send a message to member in dms",
-    async run(client, message, args) {
+    async run(message, args) {
         if (message.channel.type === 'dm') return;
         let dUser =
             message.guild.member(message.mentions.users.first()) ||

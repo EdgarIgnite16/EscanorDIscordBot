@@ -4,7 +4,7 @@ module.exports = {
   name: "8ball",
   description: "There is a big chance I insult you!",
   category: "fun",
-  async run (bot, message, args) {
+  async run (message) {
     let question = message.content.slice(8);
     message.delete()
     if (!question)

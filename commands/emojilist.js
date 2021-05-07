@@ -4,7 +4,7 @@ module.exports = {
  name: 'emoji-list',
  description: "Gets a guild's emojis",
 
- async run(client, message, args) {
+ async run(message) {
   const charactersPerMessage = 2000;
   const emojis = message.guild.emojis.cache
  .map((e) => `${e} **-** \`:${e.name}:\``)

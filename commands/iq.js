@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: "iq",
     description: "Display a user IQ",
-    async run( client , message , args){
+    async run(message){
     message.delete()
     const iq = Math.floor(Math.random() * 226);
     const embed = new Discord.MessageEmbed()

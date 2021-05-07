@@ -10,7 +10,7 @@ module.exports = {
     description: "Give confession",
     
     
-    async run (client, msg, args) {
+    async run (client, msg) {
     if(msg.author.bot) return;//khong chap nhan cfs tu bot
     if(msg.channel.type !== 'dm') return;//khong chap nhan tin nao tru tin nhan gui thang truc tiep
       if(msg.content.length > 1024 ) return msg.channel.send ('cfs chỉ được gửi dưới 1024 kí tự !');

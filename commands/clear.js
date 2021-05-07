@@ -2,7 +2,7 @@ module.exports = {
     name: "clear",
     description: "Clears messages",
 
-    async run (client, message, args) {
+    async run (message, args) {
         if (message.member.hasPermission("MANAGE_CHANNELS")) {
         const amount = args.join(" ");
 

@@ -5,7 +5,7 @@ const rp = require('request-promise-native');
 module.exports = {
     name: "boobs",
     description: "Display a random boobs image/gif (PS. Small is the best <3)",
-    async run( client, message ,args){
+    async run(message){
         if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send({embed: {

@@ -6,7 +6,7 @@ module.exports = {
     name:"chat",
     desciption: "ai chat",
 
-    async run(client, message ,args){
+    async run(message ,args){
         
         const res = await axios.get(`http://api.brainshop.ai/get?bid=155429&key=mxAU5RVksNAqBKAQ&uid=1&msg=${encodeURIComponent(args.join(' '))}`);
         

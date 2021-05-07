@@ -6,7 +6,7 @@ module.exports = {
     name: "foxgirl",
     description: "Display a random fox girl image/gif",
 
-    async run( client , message , args ){
+    async run(message){
         if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send({embed: {
