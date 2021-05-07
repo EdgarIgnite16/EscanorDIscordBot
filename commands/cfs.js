@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const fs = require('fs');
-const { count } = require('../count.json');
 const { cfschannelID } = require('../config.json');
 
 const picExt = [".webp", ".jpg", ".png", ".jpeg", ".gif"];
@@ -14,14 +13,10 @@ module.exports = {
     async run (client, msg, args) {
     if(msg.author.bot) return;//khong chap nhan cfs tu bot
     if(msg.channel.type !== 'dm') return;//khong chap nhan tin nao tru tin nhan gui thang truc tiep
-    if(msg.content.length < 1 ) return msg.channel.send ('Hãy nhập nội dung để gửi !');
-    else{
       if(msg.content.length > 1024 ) return msg.channel.send ('cfs chỉ được gửi dưới 1024 kí tự !');
     else{
       await msg.react ('💕');
       msg.channel.send('Đã gửi confesstion thành công !');
-      let count = JSON.parse(fs.readFileSync('./count.json')).count;
-      count++;
       const cfsChannel = client.channels.cache.get(cfschannelID);
       if (!cfsChannel) return;
       const embed = new Discord.MessageEmbed();
@@ -46,8 +41,7 @@ module.exports = {
         }
     
     cfsChannel.send(embed);
-    fs.writeFileSync('./count.json', JSON.stringify({ count: count }));
         }
-    }
+    
     }
 }
