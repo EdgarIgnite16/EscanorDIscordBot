@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: "erofeet",
     description: "Display a random erofeet image/gif",
-    async run( client , message , args ){
+    async run(client , message , args ){
         message.delete();
         if (!message.channel.nsfw) {
             message.react('💢');

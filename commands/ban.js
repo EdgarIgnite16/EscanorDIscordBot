@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 module.exports = {
     name:"ban",
     description:"Kick someone out server",
-    async run( client , message , args ){
+    async run(client , message , args ){
         if (message.member.hasPermission("BAN_MEMBERS")) {
             let mentioned = await message.mentions.members.first();
             let reason = await args.slice(1).join(' ');

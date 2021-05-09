@@ -16,7 +16,8 @@ module.exports = {
         }})
 
     if (message.author === user) {
-       return await message.channel.send({embed: {
+       return await message.channel.send({
+           embed: {
             color: 16734039,
             description: "You cant kiss yourself!"
         }}).then((sent) => {
@@ -34,7 +35,7 @@ module.exports = {
           .setDescription((user.toString() + " got a kiss from " + message.author.toString()))
           .setFooter(`this is so cute` + "- User Call Bot: " + message.author.username)
           .setURL(response.body.url);
-      message.channel.send(embed);
+        message.channel.send(embed);
         })
     }
 }
