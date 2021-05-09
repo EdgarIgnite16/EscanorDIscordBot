@@ -4,7 +4,7 @@ const superagent = require('superagent');
 module.exports = {
     name: "hug",
     description: "Give hug to mentioned user",
-    async run (message){
+    async run (message,client,args){
         message.delete();
         const user = message.mentions.users.first();
             if(!user)

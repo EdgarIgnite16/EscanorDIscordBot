@@ -6,7 +6,7 @@ module.exports = {
     name: "tempmute",
     description: "tempmute a member",
 
-    async run (message, args){
+    async run (message,client,args){
 
         //e!tempmute @user 1s/m/h/d
         if (message.member.hasPermission("MANAGE_MESSAGES")){

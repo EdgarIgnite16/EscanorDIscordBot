@@ -3,7 +3,7 @@ const superagent = require('superagent');
 module.exports ={ 
     name:"slap",
     desciption:"Slap SomeOne !",
-    async run(client,message,args){
+    async run(message,client,args){
       
         const user = message.mentions.users.first();
         message.delete();

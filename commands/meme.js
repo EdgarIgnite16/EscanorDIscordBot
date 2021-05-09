@@ -4,7 +4,7 @@ const Discord = module.require("discord.js");
 module.exports = { 
     name: "meme",
     description: "Sends a random meme",
-    async run(message){
+    async run(message,client,args){
         let reddit = [
             "meme",
             "animemes",

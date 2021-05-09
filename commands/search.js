@@ -4,7 +4,7 @@ const malScraper = require('mal-scraper');
 module.exports  = {
     name: "search",
     description: "Search for anime",
-    async run(message,args){
+    async run(message,client,args){
         const search = `${args}`;
         message.delete()
         malScraper.getInfoFromName(search)

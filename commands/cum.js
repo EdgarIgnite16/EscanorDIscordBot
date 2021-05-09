@@ -4,7 +4,7 @@ module.exports = {
     name: "cum",
     description: "Display a random cum image/gif",
 
-    async run(message){
+    async run(message,client,args){
         if (!message.channel.nsfw) return message.channel.send({embed: {
             color: 16734039,
             description: "You can use this command in an NSFW Channel!"

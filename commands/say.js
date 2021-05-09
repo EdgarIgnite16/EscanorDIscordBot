@@ -3,7 +3,7 @@ module.exports = {
     name: "say",
     desciption: "say command",
 
-    async run (message, args) {
+    async run (message,client,args) {
         let textChannel = message.mentions.channels.first()
 
         message.delete();

@@ -3,7 +3,7 @@ const superagent = require('superagent');
 module.exports = {
     name: "cat",
 
-    async run(message) {
+    async run(message,client,args) {
         message.delete();
         superagent.get('https://nekos.life/api/v2/img/meow')
             .end((err, response) => {

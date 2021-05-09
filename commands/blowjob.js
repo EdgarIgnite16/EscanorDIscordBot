@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: "blowjob",
     description: "Display a random blowjob image/gif",
-    async run(message){
+    async run(message,client,args){
         if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send({embed: {

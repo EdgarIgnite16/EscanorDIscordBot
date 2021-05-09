@@ -4,7 +4,7 @@ module.exports = {
     name: "help",
     desciption: "help commands",
 
-    async run (message) {
+    async run (message,client,args) {
         let embed = new Discord.MessageEmbed()
             .setThumbnail(message.guild.iconURL())
             .setTitle("Help Commands !")
