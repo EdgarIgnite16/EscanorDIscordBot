@@ -3,13 +3,13 @@ const { fblogID } = require('../config.json');
 const { run } = require('./help');
 module.exports = {
     name:"feedback",
-    async run(message,client,args){
+    async run(client,message,args){
         let question = message.content.slice(11);
         message.delete()
         message.channel.send('Đã gửi feedback thành công !').then((sent) => {
             setTimeout(() => {
                 sent.delete();
-            }, 5000);
+            }, 3000);
         });
 
 

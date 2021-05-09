@@ -7,7 +7,7 @@ module.exports = {
     description: "Get the answer to a math problem",
 
 
-    async run (message,client,args){
+    async run (client, message, args){
 
         if(!args[0]) return message.channel.send('Please provide a question');
 

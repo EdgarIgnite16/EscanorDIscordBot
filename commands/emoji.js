@@ -4,7 +4,7 @@ module.exports = {
     name: "emoji",
     description: "get emoji from the server",
 
-    async run(message,client,args) {
+    async run(client, message, args) {
         const emoji = args[0];
         if (!emoji) return message.channel.send({
             embed: {

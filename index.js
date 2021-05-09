@@ -1,16 +1,14 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
 const { readdirSync } = require('fs');
 const { join } = require('path');
-
-
+const client = new Discord.Client();
 const { token , Prefix , Reaction} = require('./config.json');
 const  config = require('./config.json');
 
 let prefix = (config.Prefix);
+
 client.commands= new Discord.Collection();
 client.events = new Discord.Collection();
-
 const commandFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
 const eventFiles = readdirSync('./events/').filter(file => file.endsWith('.js'));
 

@@ -5,7 +5,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: "kiss",
     description: "kiss someone ",
-    async run(message,client,args){
+    async run(client,message,args){
         
         const user = message.mentions.users.first();
         message.delete();

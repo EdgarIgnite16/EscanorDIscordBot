@@ -4,7 +4,7 @@ module.exports = {
     name: "help",
     desciption: "help commands",
 
-    async run (message,client,args) {
+    async run (client, message) {
         let embed = new Discord.MessageEmbed()
             .setThumbnail(message.guild.iconURL())
             .setTitle("Help Commands !")
@@ -13,7 +13,7 @@ module.exports = {
             .addField("🔐 Moderator:","`sv-info`,`user-info`,`clear`,`ban`,`kick`,`tempmute`,`menhlenhtoicao`")
             .addField("🧾 Feature:","`chat`,`avatar`,`search`,`cfs`,`weather`,`ping`,`math`,`dms`,`say`,\n`emoji`,`emoji-list`,`feedback` ")
             .addField("🎆 Fun:","`8ball`,`iq`,`meme`,`slap`,`kiss`,`hug`,`baka`,`cat`,`dog` ")
-            //.addField("⛔ NSFW (Not Recommend):"," ||`ass`|| ||`anal`|| ||`blowjob`|| ||`boobs`|| ||`cum`|| ||`ero`|| ||`erofeet`|| ||`foxgirl`|| ")
+            .addField("⛔ NSFW (Not Recommend):"," ||`ass`|| ||`anal`|| ||`blowjob`|| ||`boobs`|| ||`cum`|| ||`ero`|| ||`erofeet`|| ||`foxgirl`|| ")
             .setFooter("User Call Bot: " + message.author.username)
             .setTimestamp()
         message.channel.send(embed)

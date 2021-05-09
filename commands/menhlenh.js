@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "menhlenh",
+    name: "menhlenhtoicao",
     description: "Create a poll",
-    async run(message,client,args){
+    async run(client , message ,args){
         const pollmessage = await args.join(" ");
         message.delete()
         if (message.member.hasPermission("ADMINISTRATOR")){

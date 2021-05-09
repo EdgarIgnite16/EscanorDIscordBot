@@ -5,7 +5,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: "dog",
     description: "Sends a random dog photo",
-    async run(message,client,args){
+    async run(client,message,args){
       message.delete();
         superagent.get('https://nekos.life/api/v2/img/woof')
         .end((err, response) => {
