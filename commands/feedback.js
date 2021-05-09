@@ -6,7 +6,8 @@ module.exports = {
     description: "Give feedback",
     async run(client,message,args){
         if(message.channel.type !== 'dm'){
-            return await message.channel.send({
+            message.delete();
+            await message.channel.send({
                 embed: {
                     color:  5767167,
                     description: "Vui lòng nhắn riêng cho bot !"
