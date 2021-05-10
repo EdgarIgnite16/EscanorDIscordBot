@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "menhlenhtoicao",
+    name: "MLTC",
     description: "Create a poll",
     async run(client , message ,args){
         const pollmessage = await args.join(" ");
