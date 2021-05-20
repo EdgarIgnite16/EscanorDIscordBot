@@ -83,12 +83,11 @@ module.exports = {
         })
         }, ms(mutetime));
       }
-        }
-        else{
-            await message.channel.send({
-              embed: {
-                  color:  5767167,
-                  description: "bạn không có quyền thực thi lệnh này !"
+    }else{
+        await message.channel.send({
+            embed: {
+                color:  5767167,
+                description: "bạn không có quyền thực thi lệnh này !"
               }
           }).then((sent) => {
               setTimeout(() => {
