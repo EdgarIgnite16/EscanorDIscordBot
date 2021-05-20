@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
 const { Logchannel } = require('../config.json');
 const ms = require("ms");
+const { re } = require("mathjs");
 
 module.exports = {
     name: "tempmute",
     description: "tempmute a member",
 
     async run (client, message, args){
-
         //e!tempmute @user 1s/m/h/d
         if (message.member.hasPermission("MANAGE_MESSAGES")){
         let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
@@ -32,21 +32,69 @@ module.exports = {
             console.log(e.stack);
           }
         }
-        //end of create role
+        
         let mutetime = args[1];
-        if(!mutetime) return message.reply("Bạn chưa nhập thời gian 😐😐😐");
-        
-        await(tomute.roles.add(muterole.id));
-        message.channel.send(`<@${tomute.id}> đã bị câm nín bởi `+`**${message.member.displayName}**`+` 🤬🤬 \n<@${tomute.id}> ơi ! Bạn sẽ sớm được thả thôi ahihi !`);
-        
-
-    
-        setTimeout(function(){
-          tomute.roles.remove(muterole.id);
-          message.channel.send(` 🎉Xin Chúc Mừng <@${tomute.id}> đã được thả tự do !🎉`);
-        }, ms(mutetime));
+        if(!mutetime){
+          await message.channel.send({
+            embed: {
+                color:  5767167,
+                description: "Bạn chưa nhập thời gian để mute !"
+            }
+        }).then((sent) => {
+          setTimeout(() => {
+              sent.delete();
+          }, 15000);
+      });
         }else{
-            message.reply('Bạn không có quyền thực thi lệnh này !');
+          let reason = args.slice(2).join(" ");
+          if(!reason){
+          await message.channel.send({
+            embed: {
+                color:  5767167,
+                description: "Bạn chưa nhập lí do để mute !"
+            }
+        }).then((sent) => {
+          setTimeout(() => {
+              sent.delete();
+          }, 15000);
+        });
+        }else{
+          await(tomute.roles.add(muterole.id));
+          const embed = new Discord.MessageEmbed()
+            .setTitle(`**Tòa án tối cao tuyên bố**`)
+            .setThumbnail(tomute.user.displayAvatarURL())
+            .setDescription(`<@${tomute.id}> đã bị còng tay `)
+            .setColor("#f5142a")
+            .addField(`**Lý do: **`, reason , true )
+            .addField(`**Thời gian: **`, mutetime, true)
+            .addField("**Roles :**",`${tomute.roles.cache.map(role => role.toString()).join(' ')}`)
+            .setFooter(`người thi hành án ` + message.author.username)
+            .setTimestamp();
+          message.channel.send(embed);  
+        }
+
+        setTimeout(function(){ 
+          tomute.roles.remove(muterole.id);
+          message.channel.send({
+            embed: {
+                color:  5767167,
+                description: `**Xin chúc mừng <@${tomute.id}>**\nBạn đã được thả sau ${mutetime} ngồi tù !`
+            }
+        })
+        }, ms(mutetime));
+      }
+        }
+        else{
+            await message.channel.send({
+              embed: {
+                  color:  5767167,
+                  description: "bạn không có quyền thực thi lệnh này !"
+              }
+          }).then((sent) => {
+              setTimeout(() => {
+                  sent.delete();
+              }, 15000);
+          });
         }
       
     }
