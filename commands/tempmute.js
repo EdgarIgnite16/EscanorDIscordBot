@@ -9,6 +9,7 @@ module.exports = {
 
     async run (client, message, args){
         //e!tempmute @user 1s/m/h/d
+        message.delete();
         if (message.member.hasPermission("MANAGE_MESSAGES")){
         let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
         if(!tomute) return message.reply("Không tìm thấy người dùng.");
