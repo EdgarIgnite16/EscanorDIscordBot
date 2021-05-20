@@ -4,7 +4,8 @@ const { join } = require('path');
 const client = new Discord.Client();
 const { token , Prefix , Reaction} = require('./config.json');
 const  config = require('./config.json');
-const prefixs = ('e!','E!');
+
+let prefixs = (config.prefix);
 
 client.commands= new Discord.Collection();
 client.events = new Discord.Collection();
@@ -30,7 +31,7 @@ for (const file of eventFiles) {
 //started bot
 client.on("message", async message => {
   if(message.author.bot) return;
-  if(message.content.startsWith(prefixs)) {
+  if(message.content.toLowerCase().startsWith(prefixs)) {
       const args = message.content.slice(prefixs.length).trim().split(/ +/g);
       const command = args.shift().toLowerCase();
       if(!client.commands.has(command)) return;
