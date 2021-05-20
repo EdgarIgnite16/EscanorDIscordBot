@@ -34,7 +34,7 @@ module.exports = {
           }
         }
         
-        let mutetime = args[1];
+        const mutetime = args[1];
         if(!mutetime){
           await message.channel.send({
             embed: {
@@ -47,7 +47,7 @@ module.exports = {
           }, 15000);
       });
         }else{
-          let reason = args.slice(2).join(" ");
+          let reason = await args.slice(2).join(" ");
           if(!reason){
           await message.channel.send({
             embed: {
@@ -81,7 +81,11 @@ module.exports = {
                 color:  5767167,
                 description: `**Xin chúc mừng <@${tomute.id}>**\nBạn đã được thả sau ${mutetime} ngồi tù !`
             }
-        })
+        }).then((sent) => {
+          setTimeout(() => {
+              sent.delete();
+          }, 10000);
+      });
         }, ms(mutetime));
       }
     }else{
