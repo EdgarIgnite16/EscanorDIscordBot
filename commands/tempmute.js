@@ -34,9 +34,22 @@ module.exports = {
           }
         }
         
-        const mutetime = args[1];
+        let mutetime = args[1];
+        let check = tomute.roles.cache.find(guild => guild.name === 'Muted');
+          if(check){
+            return message.channel.send({
+              embed: {
+                  color:  5767167,
+                  description: "người này đã có mặt trong tù !"
+              }
+            }).then((sent) => {
+              setTimeout(() => {
+                  sent.delete();
+              }, 10000);
+            });
+          }
         if(!mutetime){
-          await message.channel.send({
+          return await message.channel.send({
             embed: {
                 color:  5767167,
                 description: "Bạn chưa nhập thời gian để mute !"
@@ -49,7 +62,7 @@ module.exports = {
         }else{
           let reason = await args.slice(2).join(" ");
           if(!reason){
-          await message.channel.send({
+            return await message.channel.send({
             embed: {
                 color:  5767167,
                 description: "Bạn chưa nhập lí do để mute !"
@@ -71,23 +84,24 @@ module.exports = {
             .addField("**Roles :**",`${tomute.roles.cache.map(role => role.toString()).join(' ')}`)
             .setFooter(`người thi hành án ` + message.author.username)
             .setTimestamp();
-          message.channel.send(embed);  
-        }
+          message.channel.send(embed);
 
-        setTimeout(function(){ 
-          tomute.roles.remove(muterole.id);
-          message.channel.send({
-            embed: {
-                color:  5767167,
-                description: `**Xin chúc mừng <@${tomute.id}>**\nBạn đã được thả sau ${mutetime} ngồi tù !`
-            }
-        }).then((sent) => {
-          setTimeout(() => {
-              sent.delete();
-          }, 10000);
-      });
-        }, ms(mutetime));
+          setTimeout(function(){ 
+            tomute.roles.remove(muterole.id);
+              message.channel.send({
+                embed: {
+                    color:  5767167,
+                    description: `**Xin chúc mừng <@${tomute.id}>**\nBạn đã được thả sau ${mutetime} ngồi tù !`
+                }
+              }).then((sent) => {
+              setTimeout(() => {
+                  sent.delete();
+              }, 10000);
+            });
+          }, ms(mutetime));
       }
+    }
+         
     }else{
         await message.channel.send({
             embed: {
