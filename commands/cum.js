@@ -16,7 +16,7 @@ module.exports = {
         .setTitle("You want this ? Cum ? Okay")
         .setImage(response.body.url)
         .setColor(`RANDOM`)
-        .setFooter(`Tags: cum `+ "- User Call Bot: " + message.author.username)
+        .setFooter(`Tags: cum `)
         .setURL(response.body.url);
         message.channel.send(embed);
         })

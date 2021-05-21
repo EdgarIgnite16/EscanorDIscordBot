@@ -33,7 +33,7 @@ module.exports = {
           .setImage(response.body.url)
           .setColor("RANDOM")
           .setDescription((user.toString() + " got a kiss from " + message.author.toString()))
-          .setFooter(`this is so cute` + "- User Call Bot: " + message.author.username)
+          .setFooter(`this is so cute` + "- User use command " + message.author.username)
           .setURL(response.body.url);
         message.channel.send(embed);
         })

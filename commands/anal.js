@@ -18,7 +18,7 @@ module.exports = {
           .setTitle(":smirk: Anal")
           .setImage(response.body.url)
           .setColor(`RANDOM`)
-          .setFooter(`Tags: anal ` + "- User Call Bot: " + message.author.username)
+          .setFooter(`Tags: anal `)
           .setURL(response.body.url);
       message.channel.send(embed);
         })

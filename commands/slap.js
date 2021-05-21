@@ -6,7 +6,6 @@ module.exports ={
     async run(client,message,args){
       
         const user = message.mentions.users.first();
-        message.delete();
             if(!user) return message.channel.send({embed: {
                 color: 16734039,
                 description: "You must mention someone to slap!"
@@ -32,7 +31,7 @@ module.exports ={
               .setImage(response.body.url)
               .setColor(`RANDOM`)
               .setDescription((user.toString() + " got slapped by " + message.author.toString()))
-              .setFooter(`That must hurt ._.`+ "- User Call Bot: " + message.author.username)
+              .setFooter(`That must hurt ._.`)
               .setURL(response.body.url);
                 message.channel.send(embed);
             })

@@ -10,7 +10,7 @@ module.exports = {
     .setTitle(":brain: IQ Test:")
     .setDescription(":bulb: " + message.author.username + " IQ: `" + iq + "`")
     .setColor(`RANDOM`)
-    .setFooter("- User Call Bot: " + message.author.username)
+    .setFooter("User use commands " + message.author.username)
     .setTimestamp()
     message.channel.send(embed).then((sent) => {
         setTimeout(() => {

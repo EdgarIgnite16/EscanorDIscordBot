@@ -19,7 +19,7 @@ module.exports = {
           .setTitle("Hehe this is Blowjob")
           .setImage(response.body.url)
           .setColor(`RANDOM`)
-          .setFooter(`Tags: blowjob ` + "- User Call Bot: " + message.author.username)
+          .setFooter(`Tags: blowjob `)
           .setURL(response.body.url);
       message.channel.send(embed);
         })

@@ -38,7 +38,7 @@ module.exports = {
                     .addField("**Joined On:**", `${member.joinedAt.toLocaleString()}`, true)
                     .addField("**Created On:**", `${member.user.createdAt.toLocaleString()}`, true)
                     .addField("**Roles list:**",`${member.roles.cache.map(role => role.toString()).join(' ')}`)
-                    .setFooter("User Call Bot : " + message.author.username)
+                    .setFooter("User use commands " + message.author.username)
                     .setTimestamp()
 
                 message.channel.send(embed);

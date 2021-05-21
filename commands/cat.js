@@ -11,7 +11,7 @@ module.exports = {
                     .setTitle("Random cat")
                     .setImage(response.body.url)
                     .setColor(`RANDOM`)
-                    .setFooter(`meow` + "- User Call Bot: " + message.author.username)
+                    .setFooter(`meow`)
                     .setURL(response.body.url);
                 message.channel.send(embed);
             })

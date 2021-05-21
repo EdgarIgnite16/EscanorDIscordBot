@@ -5,7 +5,6 @@ module.exports = {
     name: "hug",
     description: "Give hug to mentioned user",
     async run (client , message ,args){
-        message.delete();
         const user = message.mentions.users.first();
             if(!user)
                 return message.channel.send({embed: {
@@ -29,7 +28,7 @@ module.exports = {
               .setImage(response.body.url)
               .setColor("RANDOM")
               .setDescription((user.toString() + " got a hug from " + message.author.toString()))
-              .setFooter(`this is so cute ` + "- User Call Bot: " + message.author.username)
+              .setFooter(`this is so cute `)
               .setURL(response.body.url);
           message.channel.send(embed);
             })

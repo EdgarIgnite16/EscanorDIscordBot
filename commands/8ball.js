@@ -41,7 +41,7 @@ module.exports = {
         \n**📫 My reply: **\n${response}
         `)
         .setTimestamp()
-        .setFooter("User Call Bot: " + message.author.username)
+        .setFooter("User use commands " + message.author.username)
         .setColor(`RANDOM`);
       message.channel.send(Embed);
     }

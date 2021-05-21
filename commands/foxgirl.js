@@ -21,7 +21,7 @@ module.exports = {
           .setTitle("Fox girl Woof")
           .setImage(response.body.url)
           .setColor(`RANDOM`)
-          .setFooter(`Tags: fox girl ` + "- User Call Bot: " + message.author.username)
+          .setFooter(`Tags: fox girl `)
           .setURL(response.body.url);
       message.channel.send(embed);
         })

@@ -5,7 +5,6 @@ module.exports = {
     name: "ero",
     description: "Display a random ero image/gif",
     async run( client , message , args ){
-        message.delete();
         if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send({embed: {
@@ -19,7 +18,7 @@ module.exports = {
           .setTitle("Well Ero")
           .setImage(response.body.url)
           .setColor(`RANDOM`)
-          .setFooter(`Tags: ero `+ "- User Call Bot: " + message.author.username)
+          .setFooter(`Tags: ero `)
           .setURL(response.body.url);
       message.channel.send(embed);
         })

@@ -7,7 +7,6 @@ module.exports = {
     async run (client, message, args) {
     if(message.channel.type === 'dm') return;
         let member = message.mentions.users.first() || message.author
-
         let avatar = member.displayAvatarURL({size: 1024})
         const URL = member.displayAvatarURL();
         const embed = new Discord.MessageEmbed()
@@ -15,7 +14,6 @@ module.exports = {
         .setURL(URL)
         .setImage(avatar)
         .setColor("#27e2e8") 
-        .setFooter(" Nice Avatar !!!" + " ❌ WAL ⭕ ")
         .setTimestamp()
         message.channel.send(embed);
     }

@@ -5,7 +5,6 @@ module.exports = {
     desciption: "Find Your Sever Info by command",
 
     async run (client, message) {
-        message.delete();
         let embed = new Discord.MessageEmbed()
             .setThumbnail(message.guild.iconURL())
             .setTitle("Server Info Commands")
@@ -22,7 +21,7 @@ module.exports = {
             .addField("** Member Count: **",`${message.guild.memberCount}`,true)
             .addField("** MFA Level of Server: **",`${message.guild.mfaLevel}`,true)
 
-            .setFooter("User Call Bot: " + message.author.username)
+            .setFooter("User use commands " + message.author.username)
             .setTimestamp()
         message.channel.send(embed)
 

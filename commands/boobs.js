@@ -25,7 +25,7 @@ module.exports = {
           .setTitle("You want Boobs ? Here")
           .setColor(`RANDOM`)
           .setImage("attachment://file.png").attachFiles([{ attachment: res, name: "file.png" }])
-          .setFooter(`Tags: boobs `+ "- User Call Bot: " + message.author.username )
+          .setFooter(`Tags: boobs `)
     
     
         message.channel.send(embed);
