@@ -15,7 +15,6 @@ module.exports = {
             .addField("🧾 Feature:","`chat` `avatar` `search` `cfs` `weather` `ping` `math` `dms` `say` `emoji` `emoji-list` `feedback`")
             .addField("🎆 Fun:","`8ball` `iq` `meme` `slap` `kiss` `hug` `baka` `gay`")
             .addField("⛔ NSFW:","`ass` `anal` `blowjob` `boobs` `cum` `ero` `erofeet` `foxgirl`")
-            .setFooter("User use commands " + message.author.username)
             .setTimestamp()
         message.channel.send(embed)
 
