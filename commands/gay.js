@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "iq",
+    name: "gay",
     description: "Display a user IQ",
     async run(client , message , args){
-    const iq = Math.floor(Math.random() * 226);
+    const iq = Math.floor(Math.random() * 100);
     const embed = new Discord.MessageEmbed()
-    .setTitle(":brain: IQ Test:")
-    .setDescription(":bulb: " + message.author.username + " IQ: `" + iq + "`")
+    .setTitle("Kiểm tra mức độ LGBT (❁´◡`❁)")
+    .setDescription("`"+message.author.username +"`"+ " LGBT point: `" + iq + "%`")
     .setColor(`RANDOM`)
     .setTimestamp()
     message.channel.send(embed).then((sent) => {
