@@ -7,6 +7,7 @@ module.exports = {
     const iq = Math.floor(Math.random() * 100);
     const embed = new Discord.MessageEmbed()
     .setTitle("Kiểm tra mức độ LGBT (❁´◡`❁)")
+    .setThumbnail(`https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Gay_Pride_Flag.svg/1200px-Gay_Pride_Flag.svg.png`)
     .setDescription("`"+message.author.username +"`"+ " LGBT point: `" + iq + "%`")
     .setColor(`RANDOM`)
     .setTimestamp()
