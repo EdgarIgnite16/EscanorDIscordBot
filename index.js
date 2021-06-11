@@ -45,6 +45,3 @@ client.on("message", async message => {
 
 //token
 client.login(config.token);
-
-
-
