@@ -4,6 +4,7 @@ module.exports = {
     name: "poll",
     description: "Create a poll",
     async run(client , message ,args){
+        const member = await message.guild.member(message.author);
         const pollmessage = await args.join(" ");
         message.delete()
         if (message.member.hasPermission("ADMINISTRATOR")){
@@ -12,10 +13,10 @@ module.exports = {
                 description: "You must provide a text to ask a question!"
             }})
              const embed = new Discord.MessageEmbed()
-                .setTitle(":ballot_box: " +`${message.author.username}`+ " đã mở một cuộc thăm dò !",)
+                .setTitle(":ballot_box: " +`${member.nickname}`+ " đã mở một cuộc thăm dò !",)
                 .setColor("RANDOM")
                 .setDescription(pollmessage)
-                .setFooter("Lưu ý : React bên đưới để phản hồi  • Vote created by " + `${message.author.username}`,)
+                .setFooter("Lưu ý : React bên đưới để phản hồi  • Vote created by " + `${member.nickname}`,)
                 .setTimestamp()
                 const pollTopic = await message.channel.send({embed})
                     await pollTopic.react(`✅`);
