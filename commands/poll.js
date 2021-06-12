@@ -36,7 +36,7 @@ module.exports = {
                 }
             }
         }else{
-            message.channel.send("you dont have administrator role to to this")
+            message.reply("bạn không có quyền thực thi lệnh này !")
         }
     }
 }
