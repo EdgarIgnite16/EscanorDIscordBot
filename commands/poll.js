@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "MLTC",
+    name: "poll",
     description: "Create a poll",
     async run(client , message ,args){
         const pollmessage = await args.join(" ");
@@ -12,7 +12,7 @@ module.exports = {
                 description: "You must provide a text to ask a question!"
             }})
              const embed = new Discord.MessageEmbed()
-                .setTitle(":ballot_box: Bang chủ cái bang `" +`${message.author.username}` + "` đã mở cuộc họp thượng đỉnh !",)
+                .setTitle(":ballot_box: " +`${message.author.username}`+ " đã mở một cuộc thăm dò !",)
                 .setColor("RANDOM")
                 .setDescription(pollmessage)
                 .setFooter("Lưu ý : React bên đưới để phản hồi  • Vote created by " + `${message.author.username}`,)
@@ -22,7 +22,6 @@ module.exports = {
                     await pollTopic.react(`👌`);
                     await pollTopic.react(`😶`);
                     await pollTopic.react(`🤔`);
-                    await pollTopic.react(`👀`);
                     await pollTopic.react(`❌`);
         }else{
             message.channel.send("you dont have administrator role to to this")
