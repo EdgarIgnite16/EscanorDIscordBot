@@ -6,7 +6,7 @@ module.exports = {
 
     async run (client, message) {
         let embed = new Discord.MessageEmbed()
-            .setThumbnail(message.guild.iconURL())
+
             .setTitle("Help Commands!")
             .setDescription("**Type Prefix `e!` + `<command>` to use Commands**" + "\n" + "**Type `e!` + `developer` to see bot creator info 👋**")
             .setColor("#8de815")
