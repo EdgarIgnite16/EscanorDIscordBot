@@ -88,7 +88,7 @@
     "xmlbuilder": "^11.0.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
