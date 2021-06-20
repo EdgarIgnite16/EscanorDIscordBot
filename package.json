@@ -3,7 +3,6 @@
   "version": "3.0.0",
   "description": "not thing new",
   "main": "index.js",
-
   "dependencies": {
     "@discordjs/opus": "^0.5.3",
     "abort-controller": "^3.0.0",
