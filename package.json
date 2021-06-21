@@ -27,6 +27,7 @@
     "discord.js": "^12.5.3",
     "discord.js-collector": "^1.8.9",
     "discord.js-pagination": "^1.0.3",
+    "dotenv": "^10.0.0",
     "ecc-jsbn": "^0.1.2",
     "escape-latex": "^1.2.0",
     "event-target-shim": "^5.0.1",
