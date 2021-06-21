@@ -1,7 +1,7 @@
 {
   "name": "escanor",
-  "version": "3.0.0",
-  "description": "not thing new",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "dependencies": {
     "@discordjs/opus": "^0.5.3",

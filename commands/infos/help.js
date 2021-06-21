@@ -9,7 +9,6 @@ module.exports = {
 
     execute(client, message) {
         let embed = new Discord.MessageEmbed()
-
             .setTitle("Help Commands!")
             .setDescription("**Type Prefix `e!` + `<command>` to use Commands**" + "\n" + "**Type `e!` + `developer` to see bot creator info 👋**")
             .setColor("#8de815")
