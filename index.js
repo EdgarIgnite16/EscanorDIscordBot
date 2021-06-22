@@ -1,32 +1,51 @@
 const Discord = require('discord.js');
-const { readdirSync } = require('fs');
-const { join } = require('path');
-const client = new Discord.Client();
-const { token , Prefix , Reaction} = require('./config.json');
-const  config = require('./config.json');
+const fs = require('fs');
+const client = new Discord.Client({ disableMentions: 'everyone' });
+const { Player } = require('discord-player');
+require('dotenv').config();
 
-let prefixs = (config.prefix);
-
+client.player = new Player(client);
 client.commands= new Discord.Collection();
 client.events = new Discord.Collection();
-const commandFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
-const eventFiles = readdirSync('./events/').filter(file => file.endsWith('.js'));
+client.config = require('./config/bot');
+client.emotes = client.config.emojis;
+client.filters = client.config.filters;
+
+const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
+
+let prefixs = process.env.prefix ; 
 
 //commands 
-for (const file of commandFiles) {
-    const command = require(join(__dirname, "commands", `${file}`));
-    client.commands.set(command.name, command);
-}
+fs.readdirSync('./commands').forEach(dirs => {
+  const commands = fs.readdirSync(`./commands/${dirs}`).filter(files => files.endsWith('.js'));
+
+  for (const file of commands) {
+      const command = require(`./commands/${dirs}/${file}`);
+      console.log(`Loading command ${file}`);
+      client.commands.set(command.name.toLowerCase(), command);
+  };
+});
+
 
 //event
-for (const file of eventFiles) {
+for (const file of events) {
+  console.log(`Loading discord.js event ${file}`);
   const event = require(`./events/${file}`);
   if (event.once) {
       client.once(event.name, (...args) => event.execute(...args, client));
-  } else {
-    client.on(event.name, (...args) => event.execute(...args, client));
+  }else {
+      client.on(event.name, (...args) => event.execute(...args, client));
   }
 }
+
+//players
+for (const file of player) {
+  console.log(`Loading discord-player event ${file}`);
+  const event = require(`./player/${file}`);
+  client.player.on(file.split(".")[0], event.bind(null, client));
+};
+
 
 //started bot
 client.on("message", async message => {
@@ -44,4 +63,4 @@ client.on("message", async message => {
 })
 
 //token
-client.login(config.token);
+client.login(process.env.token);
