@@ -38,7 +38,7 @@ for (const file of events) {
   }
 }
 
-//players
+//players music
 for (const file of player) {
   console.log(`Loading discord-player event ${file}`);
   const event = require(`./player/${file}`);
