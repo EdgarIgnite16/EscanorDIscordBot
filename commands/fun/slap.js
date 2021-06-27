@@ -4,16 +4,17 @@ module.exports ={
     name:"slap",
     desciption:"Slap SomeOne !",
     async run(client,message,args){
-      
         const user = message.mentions.users.first();
-            if(!user) return message.channel.send({embed: {
-                color: 16734039,
-                description: "You must mention someone to slap!"
-            }}).then((sent) => {
-                setTimeout(() => {
-                    sent.delete();
-                }, 5000);
-            });
+            if(!user){
+                return message.channel.send({embed: {
+                    color: 16734039,
+                    description: "You must mention someone to slap!"
+                }}).then((sent) => {
+                    setTimeout(() => {
+                        sent.delete();
+                    }, 5000);
+                });
+            }
 		if (message.author === user) {
            return await message.channel.send({embed: {
                 color: 16734039,
