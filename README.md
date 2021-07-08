@@ -1,3 +1,2 @@
-#EscanorDiscordBot
+# EscanorDIscordBot
 
-this is my homework
