@@ -9,7 +9,7 @@ module.exports = {
             });
         }
         if (message.content.includes("<@!709392910008713288")){
-            message.reply("Đừng ping Ed khùm nữa , nó quạu nó nhốt vô tù bây h :>")
+            message.reply("Đừng ping Ed khùm nữa nó quạu nó nhốt vô tù bây h :>")
         }
 
         if (message.content.startsWith("<@!806542996166017135")){
