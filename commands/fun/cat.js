@@ -4,7 +4,6 @@ module.exports = {
     name: "cat",
 
     async run(client, message, args) {
-        message.delete();
         superagent.get('https://nekos.life/api/v2/img/meow')
             .end((err, response) => {
                 const embed = new Discord.MessageEmbed()
