@@ -7,7 +7,7 @@ module.exports = {
     async run (client, message) {
         let embed = new Discord.MessageEmbed()
             .setTitle("Help Commands!")
-            .setDescription("**Type Prefix `e!` + `<command>` to use Commands**" + "\n" + "**Type `e!` + `developer` to see bot creator info 👋**")
+            .setDescription("**Type Prefix `e!` + `<command>` to use Commands**" + "\n" + "**Type `e!` + `dev` to see bot creator info 👋**")
             .setColor("#8de815")
             .addField("🐶 Animal: ","`cat` `dog`")
             .addField("🔐 Moderator:","`sv-info` `user-info` `clear` `ban` `kick` `mute` `tempmute` `unmute` `poll` ")
