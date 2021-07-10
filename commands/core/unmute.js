@@ -21,7 +21,7 @@ module.exports = {
                 message.channel.send({
                 embed: {
                     color:  5767167,
-                    description: `Đã thả ${member} ngày khỏi tù !`
+                    description: `Đã thả ${member} ra khỏi tù !`
                 }
               })
             }

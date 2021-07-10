@@ -76,10 +76,10 @@ module.exports = {
             .setTitle(`**Tòa án tối cao tuyên bố**`)
             .setThumbnail(tomute.user.displayAvatarURL())
             .setDescription(`<@${tomute.id}> đã bị còng tay `)
+            .addField("**Roles :**",`${tomute.roles.cache.map(role => role.toString()).join(' ')}`)
             .setColor("#f5142a")
             .addField(`**Lý do: **`, reason , true )
             .addField(`**Thời gian: **`, mutetime, true)
-            .addField("**Roles :**",`${tomute.roles.cache.map(role => role.toString()).join(' ')}`)
             .setFooter(`người thi hành án ` + message.author.username)
             .setTimestamp();
           message.channel.send(embed);

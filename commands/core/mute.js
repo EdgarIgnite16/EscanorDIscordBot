@@ -30,7 +30,7 @@ module.exports = {
             console.log(e.stack);
           }
         }
-        
+        // check role Mute
         let check = tomute.roles.cache.find(guild => guild.name === 'Muted');
           if(check){
             return message.channel.send({
@@ -44,6 +44,10 @@ module.exports = {
               }, 10000);
             });
           }else{
+            let reason = await args.slice(1).join(" ");
+            if(reason === ""){
+              reason = "không có";
+            }
             await(tomute.roles.add(muterole.id));
             const embed = new Discord.MessageEmbed()
               .setTitle(`**Tòa án tối cao tuyên bố**`)
@@ -51,6 +55,7 @@ module.exports = {
               .setDescription(`<@${tomute.id}> đối mặt với án tù chung thân`)
               .setColor("#f5142a")
               .addField("**Roles :**",`${tomute.roles.cache.map(role => role.toString()).join(' ')}`)
+              .addField(`**Lý do: **`, reason , true )
               .setFooter(`người thi hành án ` + message.author.username)
               .setTimestamp();
             message.channel.send(embed);
