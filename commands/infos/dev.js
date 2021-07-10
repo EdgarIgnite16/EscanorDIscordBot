@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const { stripIndents } = require("common-tags")
 module.exports ={
-    name:"developer",
+    name:"dev",
     desciption:"edgarIT",
     async run(client,message){
         const embed = new Discord.MessageEmbed()
