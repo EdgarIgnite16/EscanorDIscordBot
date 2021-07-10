@@ -14,6 +14,9 @@ client.filters = client.config.filters;
 const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
 
+// const { prefixs } = require('./config/config.json');
+// const { token } = require('./config/config.json')
+
 let prefixs = process.env.prefix ; 
 
 //commands 
@@ -62,4 +65,5 @@ client.on("message", async message => {
 })
 
 //token
+// client.login(token);
 client.login(process.env.token);
