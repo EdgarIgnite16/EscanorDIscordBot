@@ -5,7 +5,7 @@ module.exports = {
     description: "Create a poll",
     async run(client , message ,args){
         if (message.member.hasPermission("ADMINISTRATOR")){
-
+            message.delete();
             let pollChannel = message.mentions.channels.first();
             const member = await message.guild.member(message.author);
             const pollmessage = await args.slice(1).join(" ");
@@ -29,9 +29,7 @@ module.exports = {
                     .setTimestamp()
                     const pollTopic = await pollChannel.send({embed})
                         await pollTopic.react(`✅`);
-                        await pollTopic.react(`👌`);
                         await pollTopic.react(`😶`);
-                        await pollTopic.react(`🤔`);
                         await pollTopic.react(`❌`);
                 }
             }
