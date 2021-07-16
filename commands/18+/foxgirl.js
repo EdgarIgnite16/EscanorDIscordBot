@@ -14,7 +14,6 @@ module.exports = {
                     description: "You can use this command in an NSFW Channel!"
                 }})
         }
-        message.delete();
         superagent.get('https://nekos.life/api/v2/img/fox_girl')
             .end((err, response) => {
           const embed = new Discord.MessageEmbed()
