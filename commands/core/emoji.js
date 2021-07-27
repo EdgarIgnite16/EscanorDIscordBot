@@ -1,9 +1,11 @@
 const Discord = require('discord.js');
 const { parse } = require('twemoji-parser');
 module.exports = {
-    name: "emoji",
-    description: "get emoji from the server",
-
+    name: 'emoji',
+    aliases: [],
+    category: 'Feature',
+    utilisation: '{prefix}emoji <emoji name>',
+    description: "Call Emoji",
     async run(client, message, args) {
         const emoji = args[0];
         if (!emoji) return message.channel.send({

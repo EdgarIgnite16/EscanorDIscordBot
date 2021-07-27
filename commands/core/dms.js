@@ -1,7 +1,10 @@
 const Discord = require('discord.js');
 module.exports = {
-    name: "dms",
-    description: "Send a message to member in dms",
+    name: 'dms',
+    aliases: [],
+    category: 'Feature',
+    utilisation: '{prefix}dms <message>',
+    description: "If you want dms private to another one ! :>",
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
         let dUser =

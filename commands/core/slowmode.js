@@ -2,8 +2,11 @@ const { array } = require("assert-plus");
 const Discord = require("discord.js")
 
 module.exports = { 
-    name:"slowmode",
-    description:"Slow mode for channel",
+    name: 'slowmode',
+    aliases: [],
+    category: 'Feature',
+    utilisation: '{prefix}slowmode <time>',
+    description: "Using power or GOD to slow mode channel",
     async run(client,message,args){
       if(message.member.hasPermission('ADMINISTRATOR')){
         

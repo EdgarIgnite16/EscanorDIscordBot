@@ -2,7 +2,10 @@ const superagent = require("superagent");
 const Discord = require('discord.js')
 
 module.exports = {
-    name: "erofeet",
+    name: 'erofeet',
+    aliases: [],
+    category: 'NSFW',
+    utilisation: '{prefix}erofeet',
     description: "Display a random erofeet image/gif",
     async run(client , message , args ){
         if (!message.channel.nsfw) {

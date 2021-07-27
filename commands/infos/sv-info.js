@@ -1,9 +1,11 @@
 const Discord = require('discord.js');
 
 module.exports = {
-    name: "sv-info",
-    desciption: "Find Your Sever Info by command",
-
+    name: 'server-info',
+    aliases: ['sv-info'],
+    category: 'Info',
+    utilisation: '{prefix}server-info <nameserver>, {prefix}sv-info <nameserver>',
+    description: "server infomation",
     async run (client, message) {
         let embed = new Discord.MessageEmbed()
             .setThumbnail(message.guild.iconURL())

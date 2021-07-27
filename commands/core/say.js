@@ -1,8 +1,10 @@
 const Discord = require('discord.js');
 module.exports = {
-    name: "say",
-    desciption: "say command",
-
+    name: 'say',
+    aliases: [],
+    category: 'Feature',
+    utilisation: '{prefix}say <content>',
+    description: "say to channel",
     async run (client, message, args) {
         let textChannel = message.mentions.channels.first()
 

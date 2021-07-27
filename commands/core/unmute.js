@@ -1,7 +1,10 @@
 const Discord = require("discord.js");
 module.exports = {
-    name:"unmute",
-    description:"Unmute Someone",
+    name: 'unmute',
+    aliases: [],
+    category: 'Moderator',
+    utilisation: '{prefix}unmute <username>',
+    description: "Using power or GOD to unmute member",
     async run(client, message, args){
         if (message.member.hasPermission('"MANAGE_MESSAGES')) {
             message.delete();

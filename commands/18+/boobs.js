@@ -3,8 +3,11 @@ const Discord = require('discord.js')
 const rp = require('request-promise-native');
 
 module.exports = {
-    name: "boobs",
-    description: "Display a random boobs image/gif (PS. Small is the best <3)",
+    name: 'boobs',
+    aliases: [],
+    category: 'NSFW',
+    utilisation: '{prefix}boobs',
+    description: "Display a random boobs image/gif",
     async run(client, message ,args){
         if (!message.channel.nsfw) {
             message.react('💢');

@@ -2,8 +2,10 @@ const discord = require('discord.js');
 
 module.exports = {
  name: 'emoji-list',
- description: "Gets a guild's emojis",
-
+ aliases: ['e-list'],
+ category: 'Feature',
+ utilisation: '{prefix}emoji-list , {prefix}e-list',
+ description: "Call List of Emoji in server",
  async run(client, message, args) {
   const charactersPerMessage = 2000;
   const emojis = message.guild.emojis.cache

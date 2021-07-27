@@ -1,9 +1,11 @@
 const superagent = require("superagent");
 const Discord = require('discord.js')
 module.exports = {
-    name: "cum",
+    name: 'cum',
+    aliases: [],
+    category: 'NSFW',
+    utilisation: '{prefix}cum',
     description: "Display a random cum image/gif",
-
     async run(client , message , args ){
         if (!message.channel.nsfw) return message.channel.send({embed: {
             color: 16734039,

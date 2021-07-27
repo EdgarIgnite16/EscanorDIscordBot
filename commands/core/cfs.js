@@ -1,15 +1,15 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const { cfschannelID } = require('../../config/config.json');
-
 const picExt = [".webp", ".jpg", ".png", ".jpeg", ".gif"];
 const videoExt = [".mp4", ".webm", ".mov"];
 
 module.exports = {
-    name: "cfs",
-    description: "Give confession",
-    
-    
+    name: 'ban',
+    aliases: [],
+    category: 'Feature',
+    utilisation: '{prefix}cfs <content> (dm for bot only)',
+    description: "Give confession to server Lozer",
     async run (client, message, args){
       if(message.channel.type !== 'dm'){
         message.delete();

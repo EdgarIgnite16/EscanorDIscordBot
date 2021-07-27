@@ -2,9 +2,12 @@ const superagent = require('superagent');
 const Discord = require('discord.js')
 
 module.exports = {
-    name: "dog",
-    description: "Sends a random dog photo",
-    async run(client,message,args){
+  name: 'dog',
+  aliases: [],
+  category: 'Animal',
+  utilisation: '{prefix}dog',
+  description: "Summoner a Dog",
+  async run(client,message,args){
       superagent.get('https://nekos.life/api/v2/img/woof').end((err, response) => {
       const embed = new Discord.MessageEmbed()
       .setTitle("Random dog")

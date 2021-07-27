@@ -2,9 +2,12 @@ const Discord = require("discord.js");
 const malScraper = require('mal-scraper');
 
 module.exports  = {
-    name: "searchAnime",
-    description: "Search for anime",
-    async run(client,message,args){
+  name: 'search-anime',
+  aliases: [],
+  category: 'Info',
+  utilisation: '{prefix}search-anime <name anime>',
+  description: "Search Anime going to here form Google bla bla",
+  async run(client,message,args){
         const search = `${args}`;
         message.delete()
         malScraper.getInfoFromName(search)

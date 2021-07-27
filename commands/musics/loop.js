@@ -3,7 +3,7 @@ module.exports = {
     aliases: ['lp', 'repeat'],
     category: 'Music',
     utilisation: '{prefix}loop',
-
+    description: "",
     async run(client, message, args) {
         if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
 

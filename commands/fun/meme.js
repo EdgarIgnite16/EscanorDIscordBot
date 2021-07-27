@@ -2,8 +2,11 @@ const randomPuppy = require('random-puppy');
 const Discord = module.require("discord.js");
 
 module.exports = { 
-    name: "meme",
-    description: "Sends a random meme",
+    name: 'meme',
+    aliases: [],
+    category: 'Fun',
+    utilisation: '{prefix}meme',
+    description: "Give a meme",
     async run( client , message , args){
         let reddit = [
             "meme",

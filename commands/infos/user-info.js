@@ -1,9 +1,10 @@
 const Discord = require("discord.js")
 module.exports = {
-    name: "user-info",
-    desciption: "get infos of user",
-
-
+    name: 'user-info',
+    aliases: ['info'],
+    category: 'Info',
+    utilisation: '{prefix}user-info <username>, {prefix}info <username>',
+    description: "user infomation",
   async  run(client, message, args) {
        
         //check if more than 1 user is mentioned

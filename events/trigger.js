@@ -1,7 +1,6 @@
 module.exports = { 
     name:"message",
     execute(message){
-
         if(message.content.toLowerCase().includes("edgar")){
             message.channel.send("Vua ăn Hại , Vua lì đòn , Vua Xàm Lờ , Vua của các loài lươn !").then((sent) => {
                 setTimeout(() => {

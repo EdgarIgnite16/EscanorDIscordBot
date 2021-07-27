@@ -1,7 +1,10 @@
 const Discord = require('discord.js');
 module.exports = {
-    name:"kick",
-    description:"Kick someone out server",
+    name: 'kick',
+    aliases: [],
+    category: 'Moderator',
+    utilisation: '{prefix}kick <username>',
+    description: "Using power or GOD to kick member",
     async run(client , message , args ){
         if (message.member.hasPermission("KICK_MEMBERS")) {
             let mentioned = await message.mentions.members.first();

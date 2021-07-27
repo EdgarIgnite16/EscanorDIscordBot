@@ -1,8 +1,11 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "poll",
-    description: "Create a poll",
+    name: 'poll',
+    aliases: [],
+    category: 'Feature',
+    utilisation: '{prefix}poll <content>',
+    description: "poll everyone",
     async run(client , message ,args){
         if (message.member.hasPermission("ADMINISTRATOR")){
             message.delete();

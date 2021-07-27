@@ -1,9 +1,11 @@
 const { stripIndent } = require("common-tags");
 const { MessageEmbed } = require("discord.js");
 module.exports = {
-  name: "8ball",
-  description: "There is a big chance I insult you!",
-  category: "fun",
+  name: '8ball',
+  aliases: [],
+  category: 'Fun',
+  utilisation: '{prefix}8ball <content>',
+  description: "Random Responses Troll",
   async run (bot, message, args) {
     let question = message.content.slice(8);
     message.delete()

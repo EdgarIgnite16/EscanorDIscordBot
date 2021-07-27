@@ -2,8 +2,11 @@ const superagent = require("superagent");
 const Discord = require('discord.js')
 
 module.exports = {
-    name: "baka",
-    description: "BAKA!!!",
+    name: 'baka',
+    aliases: [],
+    category: 'Fun',
+    utilisation: '{prefix}baka',
+    description: "Give a Baka to someone",
     async run(client , message , args ){
         message.delete();
         const user = message.mentions.users.first();

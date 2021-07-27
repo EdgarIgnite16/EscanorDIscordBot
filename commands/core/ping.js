@@ -2,9 +2,11 @@ const Discord = require('discord.js');
 const { random } = require('mathjs');
 
 module.exports = {
-    name: "ping",
-    description: "test command",
-
+    name: 'ping',
+    aliases: [],
+    category: 'Feature',
+    utilisation: '{prefix}ping',
+    description: "Check Ping Hosting",
     async run (client, message, args) {
 
 

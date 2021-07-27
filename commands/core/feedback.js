@@ -2,8 +2,11 @@ const Discord = require('discord.js');
 const { fblogID } = require('../../config/config.json');
 
 module.exports = {
-    name:"feedback",
-    description: "Give feedback",
+    name: 'feedback',
+    aliases: ['fb'],
+    category: 'Feature',
+    utilisation: '{prefix}feedback <content>, {prefix}fb <content> (dm for bot only)',
+    description: "Give feedback to admin",
     async run(client,message,args){
         if(message.channel.type !== 'dm'){
             message.delete();

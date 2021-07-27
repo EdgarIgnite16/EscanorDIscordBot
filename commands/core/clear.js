@@ -1,7 +1,9 @@
 module.exports = {
-    name: "clear",
-    description: "Clears messages",
-
+    name: 'clear',
+    aliases: ['cl'],
+    category: 'Feature',
+    utilisation: '{prefix}clear <Number clear message>',
+    description: "Using for clear message",
     async run (client, message, args) {
         if (message.member.hasPermission("MANAGE_CHANNELS")) {
         const amount = args.join(" ");

@@ -1,8 +1,11 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "gay",
-    description: "Display a user IQ",
+    name: 'gay',
+    aliases: [],
+    category: 'Fun',
+    utilisation: '{prefix}gay',
+    description: "Give a point gay",
     async run(client , message , args){
     const iq = Math.floor(Math.random() * 100);
     const embed = new Discord.MessageEmbed()

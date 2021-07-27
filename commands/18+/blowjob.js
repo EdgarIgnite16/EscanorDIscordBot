@@ -2,8 +2,11 @@ const superagent = require("superagent");
 const Discord = require('discord.js')
 
 module.exports = {
-    name: "blowjob",
-    description: "Display a random blowjob image/gif",
+    name: 'blowjob',
+    aliases: [],
+    category: 'NSFW',
+    utilisation: '{prefix}blowjob',
+    description: "Display a blowjob anal image/gif",
     async run(client, message ,args){
         if (!message.channel.nsfw) {
             message.react('💢');

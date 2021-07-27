@@ -1,9 +1,11 @@
 const Discord = require('discord.js');
 
 module.exports = {
-    name: "avatar",
-    description: "Brodcast someone's avatar",
-
+    name: 'avatar',
+    aliases: [],
+    category: 'Info',
+    utilisation: '{prefix}avatar <username(Option)>',
+    description: "get your face or get someone face",
     async run (client, message, args) {
     if(message.channel.type === 'dm') return;
         let member = message.mentions.users.first() || message.author

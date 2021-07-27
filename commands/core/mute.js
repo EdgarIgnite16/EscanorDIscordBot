@@ -1,9 +1,11 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "mute",
-    description: "mute a member",
-
+    name: 'mute',
+    aliases: [],
+    category: 'Moderator',
+    utilisation: '{prefix}mute <username>',
+    description: "Using power or GOD to mute member",
     async run (client, message, args){
         //e!tempmute @user 1s/m/h/d
         message.delete();

@@ -1,8 +1,11 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
 module.exports ={ 
-    name:"slap",
-    desciption:"Slap SomeOne !",
+    name: 'slap',
+    aliases: [],
+    category: 'Fun',
+    utilisation: '{prefix}slap <username>',
+    description: "Slap someone",
     async run(client,message,args){
         const user = message.mentions.users.first();
             if(!user){

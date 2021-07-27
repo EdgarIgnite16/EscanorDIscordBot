@@ -3,7 +3,10 @@ const Discord = require('discord.js')
 const rp = require('request-promise-native');
 
 module.exports = {
-    name: "ass",
+    name: 'ass',
+    aliases: [],
+    category: 'NSFW',
+    utilisation: '{prefix}ass',
     description: "Display a random ass image/gif",
     async run(client, message ,args){
         if (!message.channel.nsfw) {

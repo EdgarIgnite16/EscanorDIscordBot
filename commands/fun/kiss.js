@@ -3,8 +3,11 @@ const Discord = require('discord.js')
 
 
 module.exports = {
-    name: "kiss",
-    description: "kiss someone ",
+    name: 'kiss',
+    aliases: [],
+    category: 'Fun',
+    utilisation: '{prefix}kiss <username>',
+    description: "Kiss someone",
     async run(client,message,args){
         
         const user = message.mentions.users.first();

@@ -1,5 +1,9 @@
 module.exports = {
     name: 'leave',
+    aliases: [],
+    category: 'Music',
+    utilisation: '{prefix}leave',
+    description: "leave channel",
     async run(client, message, args) {
         if (!message.guild.me.voice.channel) {
             message.channel.send({

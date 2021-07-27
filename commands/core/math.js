@@ -3,10 +3,11 @@ const math = require('mathjs');
 const Discord = require('discord.js');
 
 module.exports = {
-    name: "math",
-    description: "Get the answer to a math problem",
-
-
+    name: 'math',
+    aliases: [],
+    category: 'Feature',
+    utilisation: '{prefix}math <content>',
+    description: "For Math :> For Brain",
     async run (client, message, args){
 
         if(!args[0]) return message.channel.send('Please provide a question');

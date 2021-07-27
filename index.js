@@ -14,10 +14,10 @@ client.filters = client.config.filters;
 const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
 
-// const { prefixs } = require('./config/config.json');
+// const { prefix } = require('./config/config.json');
 // const { token } = require('./config/config.json')
 
-let prefixs = process.env.prefix ; 
+let prefix = process.env.prefix ; 
 
 //commands 
 fs.readdirSync('./commands').forEach(dirs => {
@@ -52,12 +52,12 @@ for (const file of player) {
 //started bot
 client.on("message", async message => {
   if(message.author.bot) return;
-  if(message.content.toLowerCase().startsWith(prefixs)) {
-      const args = message.content.slice(prefixs.length).trim().split(/ +/g);
+  if(message.content.toLowerCase().startsWith(prefix)) {
+      const args = message.content.slice(prefix.length).trim().split(/ +/g);
       const command = args.shift().toLowerCase();
-      if(!client.commands.has(command)) return;
+      const cmd = client.commands.get(command) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
       try {
-          client.commands.get(command).run(client, message, args);
+          cmd.run(client, message, args);
       } catch (error){
           console.error(error);
       }

@@ -3,9 +3,11 @@ const axios = require('axios');
 
 
 module.exports = {
-    name:"chat",
-    desciption: "ai chat",
-
+    name: 'chat',
+    aliases: [],
+    category: 'Feature',
+    utilisation: '{prefix}chat <content>',
+    description: "Using AI chat Bot",
     async run(client, message ,args){
         
         const res = await axios.get(`http://api.brainshop.ai/get?bid=155429&key=mxAU5RVksNAqBKAQ&uid=1&msg=${encodeURIComponent(args.join(' '))}`);

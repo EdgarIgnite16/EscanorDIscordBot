@@ -1,8 +1,11 @@
 const Discord = require('discord.js');
 const { stripIndents } = require("common-tags")
 module.exports ={
-    name:"dev",
-    desciption:"edgarIT",
+    name: 'dev',
+    aliases: [],
+    category: 'Info',
+    utilisation: '{prefix}dev',
+    description: "get info developer this bot :>",
     async run(client,message){
         const embed = new Discord.MessageEmbed()
             .setTitle("**Thông tin Developer**")
