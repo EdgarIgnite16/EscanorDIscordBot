@@ -2,7 +2,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client({ disableMentions: 'everyone' });
 const { Player } = require('discord-player');
-// const mongoose = require('./database/mongoose');
+const mongoose = require('./database/mongoose');
 require('dotenv').config();
 
 client.player = new Player(client);
@@ -53,5 +53,5 @@ for (const file of player) {
 };
 
 //login
-// mongoose.init();
+mongoose.init();
 client.login(process.env.token);
