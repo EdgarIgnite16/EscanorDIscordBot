@@ -11,14 +11,6 @@ client.config = require('./config/bot');
 client.emotes = client.config.emojis;
 client.filters = client.config.filters;
 
-const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
-const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
-
-// const { prefix } = require('./config/config.json');
-// const { token } = require('./config/config.json')
-
-let prefix = process.env.prefix ; 
-
 //commands 
 fs.readdirSync('./commands').forEach(dirs => {
   const commands = fs.readdirSync(`./commands/${dirs}`).filter(files => files.endsWith('.js'));
@@ -29,17 +21,28 @@ fs.readdirSync('./commands').forEach(dirs => {
   };
 });
 
+// default value
+const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
+const trigger = fs.readdirSync('./trigger').filter(file => file.endsWith('.js'));
+
+//trigger
+for (const file of trigger) {
+  console.log(`Loading discord.js event ${file}`);
+  const trigger = require(`./trigger/${file}`);
+  if (trigger.once) {
+      client.once(trigger.name, (...args) => trigger.execute(...args, client));
+  }else {
+      client.on(trigger.name, (...args) => trigger.execute(...args, client));
+  }
+}
 
 //event
 for (const file of events) {
   console.log(`Loading discord.js event ${file}`);
   const event = require(`./events/${file}`);
-  if (event.once) {
-      client.once(event.name, (...args) => event.execute(...args, client));
-  }else {
-      client.on(event.name, (...args) => event.execute(...args, client));
-  }
-}
+  client.on(file.split(".")[0], event.bind(null, client));
+};
 
 //players music
 for (const file of player) {
@@ -48,22 +51,5 @@ for (const file of player) {
   client.player.on(file.split(".")[0], event.bind(null, client));
 };
 
-
-//started bot
-client.on("message", async message => {
-  if(message.author.bot) return;
-  if(message.content.toLowerCase().startsWith(prefix)) {
-      const args = message.content.slice(prefix.length).trim().split(/ +/g);
-      const command = args.shift().toLowerCase();
-      const cmd = client.commands.get(command) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
-      try {
-          cmd.run(client, message, args);
-      } catch (error){
-          console.error(error);
-      }
-  }
-})
-
-//token
 // client.login(token);
 client.login(process.env.token);
