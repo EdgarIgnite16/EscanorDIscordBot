@@ -11,16 +11,16 @@ module.exports = {
         
         mongoose.connect(process.env.mongooseDB, dbOptions)
         mongoose.Promise = global.Promise;
-
+        //connected
         mongoose.connection.on('connected', () =>{
             console.log('Database Connected successtion !');
         });
-
+        // disconnected
         mongoose.connection.on('disconnected', () =>{
             console.log('Database Connected fail !');
         });
-
-        mongoose.connection.on('erro', (err) =>{
+        // error
+        mongoose.connection.on('error', (err) =>{
             console.log('Database Fail ! Because : ' + err );
         });
     }
