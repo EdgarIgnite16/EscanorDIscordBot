@@ -10,7 +10,6 @@ module.exports = {
         };
         
         mongoose.connect(process.env.mongooseDB, dbOptions)
-        mongoose.set('useFindAndModify', false);
         mongoose.Promise = global.Promise;
 
         mongoose.connection.on('connected', () =>{
@@ -22,7 +21,7 @@ module.exports = {
         });
 
         mongoose.connection.on('erro', (err) =>{
-            console.log('Database Fail cmnr ! because : ' + err );
+            console.log('Database Fail ! Because : ' + err );
         });
     }
 }
