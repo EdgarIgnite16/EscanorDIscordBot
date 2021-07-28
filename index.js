@@ -2,7 +2,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client({ disableMentions: 'everyone' });
 const { Player } = require('discord-player');
-const mongoose = require('mongoose');
+const mongoose = require('./database/mongoose');
 require('dotenv').config();
 
 client.player = new Player(client);
@@ -52,17 +52,6 @@ for (const file of player) {
   client.player.on(file.split(".")[0], event.bind(null, client));
 };
 
-// mongoose Database connection
-mongoose.connect(process.env.mongooseDB , {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-}).then(()=>{
-  console.log('Connected to the Datebase Success');
-}).catch((err)=>{
-  console.log('error');
-});
-
-
-// client.login(token);
+//login
+mongoose.init();
 client.login(process.env.token);
