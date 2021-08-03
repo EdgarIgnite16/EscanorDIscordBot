@@ -29,8 +29,7 @@ module.exports = {
         if(textChannel){
         embed
             .setDescription(args.slice(1).join(" "))
-            .setColor("#f0e51d")
-            .setThumbnail("https://i.pinimg.com/originals/0d/33/7d/0d337d531c587483833a6e956f85059e.jpg")
+            .setColor("RANDOM")
             .setTimestamp();
             textChannel.send(embed)
         }
