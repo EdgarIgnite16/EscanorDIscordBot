@@ -28,9 +28,9 @@ module.exports = {
         const embed = new Discord.MessageEmbed();
         if(textChannel){
         embed
-            .setDescription(args.slice(1).join(" "))
             .setColor("RANDOM")
-            .setTimestamp();
+            .setTimestamp()
+            .setDescription(args.slice(1).join(" "))
             textChannel.send(embed)
         }
     }
