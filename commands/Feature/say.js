@@ -28,9 +28,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed();
         if(textChannel){
         embed
-            .setTitle("Escanor is here...!")
             .setDescription(args.slice(1).join(" "))
-            .setFooter("Ready To Fight !!!")
             .setColor("#f0e51d")
             .setThumbnail("https://i.pinimg.com/originals/0d/33/7d/0d337d531c587483833a6e956f85059e.jpg")
             .setTimestamp();
