@@ -5,12 +5,12 @@ const picExt = [".webp", ".jpg", ".png", ".jpeg", ".gif"];
 const videoExt = [".mp4", ".webm", ".mov"];
 
 module.exports = {
-    name: 'ban',
+    name: 'cfs',
     aliases: [],
     category: 'Feature',
     utilisation: '{prefix}cfs <content> (dm for bot only)',
     description: "Give confession to server Lozer",
-    async run (client, message, args){
+    async run(client, message, args){
       if(message.channel.type !== 'dm'){
         message.delete();
         await message.channel.send({
