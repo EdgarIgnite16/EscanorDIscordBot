@@ -6,22 +6,24 @@ module.exports = {
     category: 'NSFW',
     utilisation: '{prefix}cum',
     description: "Display a random cum image/gif",
-    async run(client , message , args ){
-        if (!message.channel.nsfw) return message.channel.send({embed: {
-            color: 16734039,
-            description: "You can use this command in an NSFW Channel!"
-        }})
-
-    superagent.get('https://nekos.life/api/v2/img/cum')
-        .end((err, response) => {
-        const embed = new Discord.MessageEmbed()
-        .setTitle("You want this ? Cum ? Okay")
-        .setImage(response.body.url)
-        .setColor(`RANDOM`)
-        .setFooter(`Tags: cum `)
-        .setURL(response.body.url);
-        message.channel.send(embed);
+    async run(client, message, args) {
+        if (!message.channel.nsfw) return message.channel.send({
+            embed: {
+                color: 16734039,
+                description: "You can use this command in an NSFW Channel!"
+            }
         })
+
+        superagent.get('https://nekos.life/api/v2/img/cum')
+            .end((err, response) => {
+                const embed = new Discord.MessageEmbed()
+                    .setTitle("You want this ? Cum ? Okay")
+                    .setImage(response.body.url)
+                    .setColor(`RANDOM`)
+                    .setFooter(`Tags: cum `)
+                    .setURL(response.body.url);
+                message.channel.send(embed);
+            })
 
     }
 }

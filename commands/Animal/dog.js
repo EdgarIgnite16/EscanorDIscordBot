@@ -7,15 +7,15 @@ module.exports = {
   category: 'Animal',
   utilisation: '{prefix}dog',
   description: "Summoner a Dog",
-  async run(client,message,args){
-      superagent.get('https://nekos.life/api/v2/img/woof').end((err, response) => {
+  async run(client, message, args) {
+    superagent.get('https://nekos.life/api/v2/img/woof').end((err, response) => {
       const embed = new Discord.MessageEmbed()
-      .setTitle("Random dog")
-      .setImage(response.body.url)
-      .setColor("RANDOM")
-      .setFooter(`woof`)
-      .setURL(response.body.url);
+        .setTitle("Random dog")
+        .setImage(response.body.url)
+        .setColor("RANDOM")
+        .setFooter(`woof`)
+        .setURL(response.body.url);
       message.channel.send(embed);
     })
-    }
+  }
 }

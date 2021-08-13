@@ -7,10 +7,8 @@ module.exports = {
     description: "If you want dms private to another one ! :>",
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
-        let dUser =
-            message.guild.member(message.mentions.users.first()) ||
-            message.guild.members.get(args[0]);
-            message.delete();
+        let dUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+        message.delete();
         if (!dUser) return message.channel.send("Can't find user!");
         let dMessage = args.join(' ').slice(22);
         if (dMessage.length < 1) {
@@ -22,11 +20,8 @@ module.exports = {
         const dmslog = new Discord.MessageEmbed().setTitle(`DMs Logs `).setColor('RANDOM').setFooter("DMs Private by Escanor 🔒 ").setTimestamp();
         dmslog.addField(`${message.author.username}, Bạn đã Gửi Tin Nhắn Ẩn Danh tới : `, dUser)
             .addField(`Nội Dung: `, dMessage);
-    
-        message.author.send(dmslog);
-    
-        message.delete()
-        
 
+        message.author.send(dmslog);
+        message.delete()
     }
 }

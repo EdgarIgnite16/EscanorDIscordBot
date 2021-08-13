@@ -1,16 +1,19 @@
 const Discord = require('discord.js');
-const { stripIndents } = require("common-tags")
-module.exports ={
+const {
+    stripIndents
+} = require("common-tags")
+
+module.exports = {
     name: 'dev',
     aliases: [],
     category: 'Info',
     utilisation: '{prefix}dev',
     description: "get info developer this bot :>",
-    async run(client,message){
+    async run(client, message) {
         const embed = new Discord.MessageEmbed()
             .setTitle("**Thông tin Developer**")
             .setColor("#2df7dc")
-            .setDescription(stripIndents`**Thông tin cá nhân**
+            .setDescription(stripIndents `**Thông tin cá nhân**
             **Discord tagname: ** Edgarr#0446
             **ID user: ** 709392910008713288
             **Tên Thật: ** Trần Nguyên Lộc

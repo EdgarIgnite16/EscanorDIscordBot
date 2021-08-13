@@ -18,15 +18,16 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
             .setTitle(`Your emoji : ${emoji}`)
             .setColor("RANDOM");
-        
+
         if (custom.id) {
             let link = `https://cdn.discordapp.com/emojis/${custom.id}.${custom.animated ? "gif" : "png"}`
             embed.setImage(link)
                 .setFooter(`Emoji ID: ${custom.id}`);
             return message.channel.send(embed);
-        }
-        else {
-            let parsed = parse(emoji, { assetType: `png` });
+        } else {
+            let parsed = parse(emoji, {
+                assetType: `png`
+            });
             if (!parsed[0]) return message.channel.send("Can't find Emoji!")
             embed.setImage(parsed[0].url);
             return message.channel.send(embed);

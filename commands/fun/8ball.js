@@ -6,15 +6,15 @@ module.exports = {
   category: 'Fun',
   utilisation: '{prefix}8ball <content>',
   description: "Random Responses Troll",
-  async run (bot, message, args) {
+  async run(bot, message, args) {
     let question = message.content.slice(8);
     message.delete()
     if (!question)
       return message.channel.send(`You did not specify your question!`).then((sent) => {
         setTimeout(() => {
-            sent.delete();
+          sent.delete();
         }, 5000);
-    });
+      });
     else {
       let responses = [
         "Có",
@@ -38,7 +38,7 @@ module.exports = {
       let Embed = new MessageEmbed()
         .setTitle(`8Ball Bủh Bủh lmeo !`)
         .setThumbnail("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLtNCR2P2prQ_rTY1f0eCFA87jXM0cA6imusO8bPzcx_8eFO0GqQEKAcrQOBLb9T0Y2IU&usqp=CAU")
-        .addField("I am a HANDSOME COOL Cat ~~>", stripIndent`
+        .addField("I am a HANDSOME COOL Cat ~~>", stripIndent `
         **❓ Your Question:**\n${question}
         \n**📫 My reply: **\n${response}
         `)
