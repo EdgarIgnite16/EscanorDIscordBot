@@ -22,7 +22,6 @@
     "dashdash": "^1.14.1",
     "decimal.js": "^10.2.1",
     "delayed-stream": "^1.0.0",
-    "discord-player": "^4.1.1",
     "discord.js": "^12.5.3",
     "discord.js-collector": "^1.8.9",
     "discord.js-pagination": "^1.0.3",

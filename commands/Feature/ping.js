@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const { random } = require('mathjs');
 module.exports = {
     name: 'ping',
     aliases: [],

@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 module.exports = {
     name: 'kick',
     aliases: [],
@@ -66,7 +65,7 @@ module.exports = {
             message.channel.send({
                 embed: {
                     color: 16734039,
-                    description: "You don't have premission to kick members!"
+                    description: "Bạn không có quyền thực thi lệnh này !"
                 }
             })
         }

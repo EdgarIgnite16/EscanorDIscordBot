@@ -1,4 +1,3 @@
-const Discord = require("discord.js");
 module.exports = {
     name: 'unmute',
     aliases: [],
@@ -43,11 +42,7 @@ module.exports = {
                     color: 5767167,
                     description: "bạn không có quyền thực thi lệnh này !"
                 }
-            }).then((sent) => {
-                setTimeout(() => {
-                    sent.delete();
-                }, 15000);
-            });
+            })
         }
     }
 }

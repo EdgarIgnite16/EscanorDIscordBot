@@ -1,8 +1,3 @@
-const {
-    array
-} = require("assert-plus");
-const Discord = require("discord.js")
-
 module.exports = {
     name: 'slowmode',
     aliases: [],

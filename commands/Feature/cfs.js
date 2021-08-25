@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const fs = require('fs');
+
 const {
     cfschannelID
 } = require('../../config/config.json');

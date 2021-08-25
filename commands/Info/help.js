@@ -11,7 +11,6 @@ module.exports = {
             const Fun = message.client.commands.filter(x => x.category == 'Fun').map((x) => '`' + x.name + '`').join(', ');
             const Moderator = message.client.commands.filter(x => x.category == 'Moderator').map((x) => '`' + x.name + '`').join(', ');
             const Feature = message.client.commands.filter(x => x.category == 'Feature').map((x) => '`' + x.name + '`').join(', ');
-            const Music = message.client.commands.filter(x => x.category == 'Music').map((x) => '`' + x.name + '`').join(', ');
             const NSFW = message.client.commands.filter(x => x.category == 'NSFW').map((x) => '`' + x.name + '`').join(', ');
             message.channel.send({
                 embed: {
@@ -23,7 +22,6 @@ module.exports = {
                         { name: '🎆 Fun', value: Fun },
                         { name: '🔐 Moderator', value: Moderator },
                         { name: '🧾 Feature', value: Feature },
-                        { name: '🎶 Music', value: Music },
                         { name: '⚠️ NSFW', value: NSFW },
                     ],
                     timestamp: new Date(),

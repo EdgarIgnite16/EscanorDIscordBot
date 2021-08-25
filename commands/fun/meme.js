@@ -1,5 +1,4 @@
 const randomPuppy = require('random-puppy');
-const Discord = module.require("discord.js");
 
 module.exports = {
     name: 'meme',

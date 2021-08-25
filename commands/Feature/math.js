@@ -1,5 +1,4 @@
 const math = require('mathjs');
-
 const Discord = require('discord.js');
 
 module.exports = {
