@@ -1,5 +1,3 @@
-require('dotenv').config();
-const TOKEN = process.env.token;
 const Discord = require('discord.js');
 const mongoose = require('./database/ConnectDB');
 const { Client, Intents, Collection } = require('discord.js');
@@ -25,7 +23,7 @@ const client = new Client({
   ] 
 });
 
-module.exports = client
+module.exports = client;
 // some config suck
 client.commands = new Collection();
 client.cooldowns = new Collection();
@@ -34,6 +32,8 @@ client.cooldowns = new Collection();
   require(`./Handler/${handler}`)(client, Discord);
 });
 
+require('dotenv').config();
+const TOKEN = process.env.token;
 //login and connection MongooseDB
 mongoose.init();
 client.login(TOKEN);
