@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { MessageEmbed } = require("discord.js");
 const superagent = require('superagent');
 module.exports = {
     name: 'cat',
@@ -6,15 +6,15 @@ module.exports = {
     category: 'Animal',
     utilisation: '{prefix}cat',
     description: 'Summoner a Cat',
-    async run(client, message, args) {
+    execute(message, args, commandName, client, Discord) {
         superagent.get('https://nekos.life/api/v2/img/meow').end((err, response) => {
-            const embed = new Discord.MessageEmbed()
+            const embed = new MessageEmbed()
                 .setTitle("Random cat")
                 .setImage(response.body.url)
                 .setColor(`RANDOM`)
                 .setFooter(`meow`)
                 .setURL(response.body.url);
-            message.channel.send(embed);
+            message.channel.send({embeds: [embed]});
         })
     }
 }

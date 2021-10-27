@@ -1,115 +1,193 @@
-const Discord = require("discord.js");
+const { Client, MessageEmbed, Message } = require("discord.js");
 const ms = require("ms");
 
 module.exports = {
   name: 'tempmute',
-  aliases: [],
+  aliases: ['camnin'],
   category: 'Moderator',
-  utilisation: '{prefix}tempmute <username>',
+  utilisation: '{prefix}tempmute <@username> <time> [reason]',
   description: "Using power or GOD to temp mute member",
-  async run(client, message, args) {
+  permissions: "MANAGE_MESSAGES",
+      /** 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
+  execute(message, args, commandName, client, Discord) {
     //e!tempmute @user 1s/m/h/d
-    message.delete();
-    if (message.member.hasPermission("MANAGE_MESSAGES")) {
-      let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
-      if (!tomute) return message.reply("Không tìm thấy người dùng.");
-      if (tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Nó quá mạnh không thể làm gì được");
-      let muterole = message.guild.roles.cache.find(guild => guild.name === 'Muted');
-      //start of create role
-      if (!muterole) {
-        try {
-          muterole = await message.guild.cache.createRole({
-            name: "Muted",
-            color: "#000000",
-            permissions: []
-          })
-          message.guild.channels.forEach(async (channel, id) => {
-            await channel.overwritePermissions(muterole, {
-              SEND_MESSAGES: false,
-              ADD_REACTIONS: false
-            });
-          });
-        } catch (e) {
-          console.log(e.stack);
-        }
-      }
+      
+      const member = message.mentions.members.first();
+      const mutetime = args[1];
+      let reason = args.slice(2).join(" ");
+      const muterole = message.guild.roles.cache.find(role => role.name === 'Muted');
 
-      let mutetime = args[1];
-      let check = tomute.roles.cache.find(guild => guild.name === 'Muted');
-      if (check) {
-        return message.channel.send({
-          embed: {
-            color: 5767167,
-            description: "người này đã có mặt trong tù !"
-          }
-        }).then((sent) => {
-          setTimeout(() => {
-            sent.delete();
-          }, 10000);
-        });
-      }
-      if (!mutetime) {
-        return await message.channel.send({
-          embed: {
-            color: 5767167,
-            description: "Bạn chưa nhập thời gian để mute !"
-          }
-        }).then((sent) => {
-          setTimeout(() => {
-            sent.delete();
-          }, 15000);
-        });
-      } else {
-        let reason = await args.slice(2).join(" ");
-        if (!reason) {
-          return await message.channel.send({
-            embed: {
-              color: 5767167,
-              description: "Bạn chưa nhập lí do để mute !"
-            }
-          }).then((sent) => {
-            setTimeout(() => {
-              sent.delete();
-            }, 15000);
-          });
-        } else {
-          await (tomute.roles.add(muterole.id));
-          const embed = new Discord.MessageEmbed()
-            .setTitle(`**Tòa án tối cao tuyên bố**`)
-            .setThumbnail(tomute.user.displayAvatarURL())
-            .setDescription(`<@${tomute.id}> đã bị còng tay `)
-            .addField("**Roles :**", `${tomute.roles.cache.map(role => role.toString()).join(' ')}`)
-            .setColor("#f5142a")
-            .addField(`**Lý do: **`, reason, true)
-            .addField(`**Thời gian: **`, mutetime, true)
-            .setFooter(`người thi hành án ` + message.author.username)
-            .setTimestamp();
-          message.channel.send(embed);
-
-          setTimeout(function () {
-            tomute.roles.remove(muterole.id);
-            message.channel.send({
-              embed: {
-                color: 5767167,
-                description: `**Xin chúc mừng <@${tomute.id}>**\nBạn đã được thả sau ${mutetime} ngồi tù !`
-              }
-            }).then((sent) => {
-              setTimeout(() => {
-                sent.delete();
-              }, 10000);
-            });
-          }, ms(mutetime));
-        }
-      }
-
-    } else {
-      await message.channel.send({
-        embed: {
-          color: 5767167,
-          description: "bạn không có quyền thực thi lệnh này !"
-        }
-      })
+     // find user
+    if (!member) {
+      const CantMute = new MessageEmbed()
+        .setColor("RED")
+        .setFooter("Cách sử dụng: {prefix}tempmute <@username> <time> [reason]")
+        .setDescription("Không tìm thấy đối tượng để mute !\nBạn phải dùng @'tag member' để thực thi")
+      return message.channel.send({embeds: [CantMute]})
+      .then((sent) => {
+        setTimeout(() => {
+          sent.delete();
+        }, 10000);
+      });
     }
 
+    // can not mute yourself 
+    if(member.id  === message.author.id) {
+      const YouDumb = new MessageEmbed()
+      .setColor("RED")
+      .setFooter("Cách sử dụng: {prefix}tempmute <@username> <time> [reason]")
+      .setDescription("Bạn không thể tự mute chính mình !")
+      return message.channel.send({embeds: [YouDumb]})
+      .then((sent) => {
+        setTimeout(() => {
+          sent.delete();
+        }, 10000);
+      });
+    }
+
+    // can not mute ME :)))
+    if(member.id  === '806542996166017135') {
+      const HeyYou = new MessageEmbed()
+      .setColor("RED")
+      .setFooter("Cách sử dụng: {prefix}tempmute <@username> <time> [reason]")
+      .setDescription("Bạn không thể tự mute tôi :< ")
+      return message.channel.send({embeds: [HeyYou]})
+      .then((sent) => {
+        setTimeout(() => {
+          sent.delete();
+        }, 10000);
+      });
+    }
+    
+    // check they power
+    if (member.permissions.has("MANAGE_MESSAGES")) {
+      const CantMute = new MessageEmbed()
+        .setColor("RED")
+        .setFooter("Cách sử dụng: {prefix}tempmute <@username> <time> [reason]")
+        .setDescription("Sức mạnh của người này vượt quá hoặc bằng quyền hạn của bạn.\nCho nên bạn không thể mute người này !")
+      return message.channel.send({embeds: [CantMute]})
+      .then((sent) => {
+        setTimeout(() => {
+          sent.delete();
+        }, 10000);
+      });
+    }
+    
+    // start of create role
+    if (!muterole) {
+      try {
+        muterole = message.guild.roles.create({
+            name: "Muted",
+            color: "#000000",
+            permissions: [],
+        });
+
+        message.guild.channels.cache.filter(c => c.type === 'text').forEach(async (channel, id) => {
+          channel.createOverwrite(muterole, {
+            SEND_MESSAGES: false,
+            ADD_REACTIONS: false
+          });
+        });
+      } catch (e) {
+        console.log(e.stack);
+      }
+    }
+
+    //check role Mute
+    if(member.roles.cache.some(role => role.name === 'Muted')) {
+      const CantSendMute = new MessageEmbed()
+        .setColor("RED")
+        .setFooter("Cách sử dụng: {prefix}tempmute <@username> <time> [reason]")
+        .setDescription("người này đã có mặt trong tù !")
+      return message.channel.send({embeds: [CantSendMute]})
+      .then((sent) => {
+        setTimeout(() => {
+          sent.delete();
+        }, 10000);
+      });
+    }
+
+    //check role highest position
+    if (member.roles.highest.position >= message.member.roles.highest.position) {
+      const CantSendMute2 = new MessageEmbed()
+      .setColor("RED")
+      .setFooter("Cách sử dụng: {prefix}tempmute <@username> <time> [reason]")
+      .setDescription("Bạn không thể tống người này vào tù !")
+      return message.channel.send({embeds: [CantSendMute2]})
+      .then((sent) => {
+        setTimeout(() => {
+          sent.delete();
+        }, 10000);
+      });
+    }
+
+    //check time input
+    if (!mutetime) {
+      const WhenYouForgotTime = new MessageEmbed()
+      .setColor("RED")
+      .setFooter("Cách sử dụng: {prefix}tempmute <@username> <time> [reason]")
+      .setDescription("Bạn chưa nhập thời gian để mute !")
+      return message.channel.send({embeds: [WhenYouForgotTime]})
+      .then((sent) => {
+        setTimeout(() => {
+          sent.delete();
+        }, 10000);
+      });
+    }
+
+    //check reason input
+    // if (!reason) {
+    //   const WhenYouForgotReason = new MessageEmbed()
+    //   .setColor("RED")
+    //   .setFooter("Cách sử dụng: {prefix}tempmute <@username> <time> [reason]")
+    //   .setDescription("Bạn chưa nhập lí do để mute !")
+    //   return message.channel.send({embeds: [WhenYouForgotReason]})
+    //   .then((sent) => {
+    //     setTimeout(() => {
+    //       sent.delete();
+    //     }, 10000);
+    //   });
+    // }
+
+    //empty reason
+    if (reason === "") {
+      reason = "không có";
+    }
+
+    // started mute user
+    member.roles.add(muterole);
+    const embed = new MessageEmbed()
+      .setColor("#f5142a")
+      .setTitle(`**Tòa án tối cao tuyên bố**`)
+      .setThumbnail(member.user.displayAvatarURL())
+      .setDescription(`<@${member.id}> đã bị tạm giam trong ${ms(ms(mutetime))} giây !`)
+      .addField(`**Lý do: **`, reason, true)
+      .addField(`**Thời gian: **`, mutetime, true)
+      .addField("**Roles :**", `${member.roles.cache.map(role => role.toString()).join(' ').replace("@everyone", " ")}`)
+      .setFooter(`người thi hành án ` + message.author.username)
+      .setTimestamp();
+    message.channel.send({embeds: [embed]})
+    .then((sent) => {
+      setTimeout(() => {
+        sent.delete();
+          }, 60000);
+      });
+    
+    setTimeout(function () {
+      member.roles.remove(muterole)
+      const RemoveRoleMuted = new MessageEmbed()
+      .setColor("GREEN")
+      .setDescription(`**Xin chúc mừng <@${member.id}>**\nBạn đã được thả sau ${ms(ms(mutetime))} ngồi tù !`)
+      return message.channel.send({embeds: [RemoveRoleMuted]})
+      .then((sent) => {
+        setTimeout(() => {
+          sent.delete();
+            }, 60000);
+        });
+      }, ms(mutetime));
   }
 }

@@ -1,5 +1,10 @@
 {
     "prefix":"e!",
     "cfschannelID" : "821054975974047794",
+    "WelcomeChannelTest" : "884374928214872075",
+    "LogWelcomeChannelTest": "893025512509804594",
+    "WelcomeChannelLoser" : "864802201800146965",
+    "LogWelcomeChannelLoser": "893025512509804594",
+    "LogLeaveChannelTest" : "893031104108462132",
     "fblogID":"840124663136911380"
 }

@@ -1,45 +1,39 @@
-const fs = require('fs');
-const Discord = require('discord.js');
-const client = new Discord.Client({ disableMentions: 'everyone' });
-
-// connection MongooseDB
-const mongoose = require('./database/ConnectDB');
 require('dotenv').config();
-
-// some config suck
-client.commands= new Discord.Collection();
-client.events = new Discord.Collection();
-
-//commands 
-fs.readdirSync('./commands').forEach(dirs => {
-  const commands = fs.readdirSync(`./commands/${dirs}`).filter(files => files.endsWith('.js'));
-  for (const file of commands) {
-      const command = require(`./commands/${dirs}/${file}`);
-      console.log(`Loading command ${file}`); // option
-      client.commands.set(command.name.toLowerCase(), command);
-  };
+const TOKEN = process.env.token;
+const Discord = require('discord.js');
+const mongoose = require('./database/ConnectDB');
+const { Client, Intents, Collection } = require('discord.js');
+const client = new Client({
+  // intents: 32767
+  intents:
+  [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_BANS,
+    Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS,
+    Intents.FLAGS.GUILD_INTEGRATIONS,
+    Intents.FLAGS.GUILD_WEBHOOKS,
+    Intents.FLAGS.GUILD_INVITES,
+    Intents.FLAGS.GUILD_VOICE_STATES,
+    Intents.FLAGS.GUILD_MESSAGES,
+    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+    Intents.FLAGS.GUILD_MESSAGE_TYPING,
+    Intents.FLAGS.DIRECT_MESSAGES,
+    Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
+    Intents.FLAGS.DIRECT_MESSAGE_TYPING,
+    // Intents.FLAGS.GUILD_MEMBERS,
+    // Intents.FLAGS.GUILD_PRESENCES,
+  ] 
 });
 
-//event
-const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
-for (const file of events) {
-  console.log(`Loading discord.js event ${file}`);
-  const event = require(`./events/${file}`);
-  client.on(file.split(".")[0], event.bind(null, client));
-};
+module.exports = client
+// some config suck
+client.commands = new Collection();
+client.cooldowns = new Collection();
 
-//trigger
-const trigger = fs.readdirSync('./trigger').filter(file => file.endsWith('.js'));
-for (const file of trigger) {
-  console.log(`Loading discord.js trigger ${file}`);
-  const trigger = require(`./trigger/${file}`);
-  if (trigger.once) {
-      client.once(trigger.name, (...args) => trigger.execute(...args, client));
-  }else {
-      client.on(trigger.name, (...args) => trigger.execute(...args, client));
-  }
-}
+['Commands', 'Commands_Slash', 'Events'].forEach((handler)=> {
+  require(`./Handler/${handler}`)(client, Discord);
+});
 
-//login
+//login and connection MongooseDB
 mongoose.init();
-client.login(process.env.token);
+client.login(TOKEN);

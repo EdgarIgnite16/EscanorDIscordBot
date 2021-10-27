@@ -1,73 +1,107 @@
+const {Client, MessageEmbed, Message} = require("discord.js");
+
 module.exports = {
     name: 'kick',
-    aliases: [],
+    aliases: ['getthefuckout'],
     category: 'Moderator',
     utilisation: '{prefix}kick <username>',
     description: "Using power or GOD to kick member",
-    async run(client, message, args) {
-        if (message.member.hasPermission("KICK_MEMBERS")) {
-            let mentioned = await message.mentions.members.first();
-            let reason = await args.slice(1).join(' ');
+    permissions: "MANAGE_MESSAGES",
+    /** 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
+    execute(message, args, commandName, client, Discord) {
+        message.delete();
+        const member = message.mentions.members.first();
+        let reason = args.slice(1).join(" ");
 
-            if (!mentioned)
-                return await message.channel.send({
-                        embed: {
-                            color: 16734039,
-                            description: "Mention a valid member!"
-                        }
-                    })
-                    .then((message) => {
-                        setTimeout(() => {
-                            message.delete();
-                        }, 10000);
-                    });
-
-            if (!mentioned.kickable)
-                return await message.channel.send({
-                    embed: {
-                        color: 16734039,
-                        description: "You cannot kick this member!"
-                    }
-                }).then((message) => {
-                    setTimeout(() => {
-                        message.delete();
-                    }, 10000);
-                });
-
-            if (message.author === mentioned) {
-                return await message.channel.send({
-                    embed: {
-                        color: 16734039,
-                        description: "You cant kick yourself!"
-                    }
-                }).then((message) => {
-                    setTimeout(() => {
-                        message.delete();
-                    }, 10000);
-                });
-            }
-            
-            if (!reason)
-                reason = "No reason provided!".then((message) => {
-                    setTimeout(() => {
-                        message.delete();
-                    }, 10000);
-                });
-
-            mentioned.kick(reason);
-            await message.channel.send({
-                embed: {
-                    color: 16734039,
-                    description: ":arrow_right: " + mentioned.displayName + " has been Kicked! :door:"
-                }
-            });
-        } else {
-            message.channel.send({
-                embed: {
-                    color: 16734039,
-                    description: "Bạn không có quyền thực thi lệnh này !"
-                }
-            })
+        //empty reason
+        if (reason === "") {
+            reason = "không có";
         }
+
+        if (!member) {
+            const CantMute = new MessageEmbed()
+                .setColor("RED")
+                .setFooter("Cách sử dụng: {prefix}mute <@username> [reason]")
+                .setDescription("Không tìm thấy đối tượng để kick !\nBạn phải dùng **@<username>** để thực thi")
+            return message.channel.send({
+                    embeds: [CantMute]
+                })
+                .then((sent) => {
+                    setTimeout(() => {
+                        sent.delete();
+                    }, 10000);
+                });
+        }
+
+        // can not mute yourself 
+        if (member.id === message.author.id) {
+            const YouDumb = new MessageEmbed()
+                .setColor("RED")
+                .setFooter("Cách sử dụng: {prefix}mute <@username> [reason]")
+                .setDescription("Bạn không thể tự kick chính mình !")
+            return message.channel.send({
+                    embeds: [YouDumb]
+                })
+                .then((sent) => {
+                    setTimeout(() => {
+                        sent.delete();
+                    }, 10000);
+                });
+        }
+
+        // can not mute ME :)))
+        if (member.id === '806542996166017135') {
+            const HeyYou = new MessageEmbed()
+                .setColor("RED")
+                .setFooter("Cách sử dụng: {prefix}mute <@username> [reason]")
+                .setDescription("Bạn không thể kick tôi :< ")
+            return message.channel.send({
+                    embeds: [HeyYou]
+                })
+                .then((sent) => {
+                    setTimeout(() => {
+                        sent.delete();
+                    }, 10000);
+                });
+        }
+
+        //check role highest position
+        if (member.roles.highest.position >= message.member.roles.highest.position) {
+            const CantSendMute2 = new MessageEmbed()
+                .setColor("RED")
+                .setFooter("Cách sử dụng: {prefix}mute <@username> [reason]")
+                .setDescription("Bạn không thể kick người này !")
+            return message.channel.send({
+                    embeds: [CantSendMute2]
+                })
+                .then((sent) => {
+                    setTimeout(() => {
+                        sent.delete();
+                    }, 10000);
+                });
+        }
+
+        //kick member
+        member.kick().then(() => {
+            const embed = new MessageEmbed()
+                .setColor("#f5142a")
+                .setThumbnail(member.user.displayAvatarURL())
+                .setDescription(`<@${member.id}> đã bị đá bay khỏi server !`)
+                .addField(`**Lý do: **`, reason, true)
+                .addField("**Roles :**", `${member.roles.cache.map(role => role.toString()).join(' ').replace("@everyone", " ")}`, true)
+                .setFooter(`người thi hành án ` + message.author.username)
+                .setTimestamp();
+            message.channel.send({embeds: [embed]})
+                .then((sent) => {
+                setTimeout(() => {
+                    sent.delete();
+                }, 60000);
+            });
+        });
+
     }
 }
