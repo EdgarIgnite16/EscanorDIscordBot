@@ -21,7 +21,7 @@ module.exports = {
             .setThumbnail(message.guild.iconURL())
             .setDescription("Nhập Prefix `e! + <lệnh>` để thực thi **LỆNH**\nBạn có thể nhập `e!help + <lệnh>` để xem hướng đẫn sử dụng")
             .addFields (
-                {name: 'Inline field title', value: `${Moderator}`, inline: true },
+                {name: 'Inline field title', value: `-> ${Moderator}`, inline: true },
                 // { name: '🔐 Moderator', value: `${Moderator}`},
                 // { name: '📕 Utilities', value: `${Utilities}`},
                 // { name: '🎆 Funny', value: `${Funny}`},
