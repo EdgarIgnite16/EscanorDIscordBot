@@ -18,22 +18,24 @@ const client = new Client({
     Intents.FLAGS.DIRECT_MESSAGES,
     Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
     Intents.FLAGS.DIRECT_MESSAGE_TYPING,
-    // Intents.FLAGS.GUILD_MEMBERS,
-    // Intents.FLAGS.GUILD_PRESENCES,
+    Intents.FLAGS.GUILD_MEMBERS,
+    Intents.FLAGS.GUILD_PRESENCES,
   ] 
 });
 
-module.exports = client;
 // some config suck
+module.exports = client;
 client.commands = new Collection();
 client.cooldowns = new Collection();
 
+// execute commands from the commands folder
 ['Commands', 'Commands_Slash', 'Events'].forEach((handler)=> {
   require(`./Handler/${handler}`)(client, Discord);
 });
 
+
+//login and connection MongooseDB
 require('dotenv').config();
 const TOKEN = process.env.token;
-//login and connection MongooseDB
 mongoose.init();
 client.login(TOKEN);

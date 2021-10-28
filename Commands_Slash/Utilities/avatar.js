@@ -18,11 +18,10 @@ module.exports = {
     execute(client, interaction) {
         const Target = interaction.option.getUser('target');
         const response = new MessageEmbed()
-        .setColor('RANDOM')
-        .setAuthor(`${Target.tag}\'s Avatar`)
-        .setImage(Target.displayAvatarURL({dynamic: true}))
-        .setFooter(`Request By ${interaction.user.tag}`)
-
+            .setColor('RANDOM')
+            .setAuthor(`${Target.tag}\'s Avatar`)
+            .setImage(Target.displayAvatarURL({dynamic: true}))
+            .setFooter(`Request By ${interaction.user.tag}`)
         interaction.followUp({embeds: [response]})
     }
 }
