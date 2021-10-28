@@ -3,8 +3,8 @@ const { MessageEmbed } = require("discord.js");
 const { prefix } = "e!";
 
 module.exports = {
-    name: 'help',
-    aliases: ['h'],
+    name: 'helpTest',
+    aliases: ['hTest'],
     category: 'Utilities',
     utilisation: '{prefix}help <command name>',
     description: "Help Commands",
@@ -22,10 +22,10 @@ module.exports = {
             .setThumbnail(message.guild.iconURL())
             .addFields (
                 { name: '😺 Animal', value: `${Animal}`, inline: true },
-                { name: '🔐 Moderator', value: `${Moderator}`},
-                { name: '📕 Utilities', value: `${Utilities}`},
-                { name: '🎆 Funny', value: `${Funny}`},
-                { name: '⚠️ NSFW', value: `${NSFW}`},
+                { name: '🔐 Moderator', value: `${Moderator}`, inline: true},
+                { name: '📕 Utilities', value: `${Utilities}`, inline: true},
+                { name: '🎆 Funny', value: `${Funny}`, inline: true},
+                { name: '⚠️ NSFW', value: `${NSFW}`, inline: true},
             )
             .setFooter(`${message.guild.name}`, message.guild.iconURL())
             .setTimestamp()
