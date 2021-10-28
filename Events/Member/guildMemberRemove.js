@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { LogLeaveChannelTest } = require("../../Config/config.json");
+const { LogLeaveChannelTest } = require("../../config.json");
 
 module.exports = {
     name:"guildMemberRemove",
