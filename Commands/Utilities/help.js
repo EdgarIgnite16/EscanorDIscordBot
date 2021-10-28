@@ -56,7 +56,7 @@ module.exports = {
                 .addFields(
                     { name: '🧾 Name', value: command.name, inline: true },
                     { name: '🧾 Category', value: command.category, inline: true },
-                    { name: '🧾 Aliase(s)', value: command.aliases.length < 1 ? 'None' : command.aliases.join(', '), inline: true },
+                    // { name: '🧾 Aliase(s)', value: command.aliases.length < 1 ? 'None' : command.aliases.join(', '), inline: true },
                     { name: '🧾 Utilisation', value: command.utilisation.replace('{prefix}', prefix), inline: true },
                     { name: '🧾 Description', value: command.description, inline: false },
                 )
