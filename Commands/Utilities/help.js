@@ -21,11 +21,7 @@ module.exports = {
             .setThumbnail(message.guild.iconURL())
             .setDescription("Nhập Prefix `e! + <lệnh>` để thực thi **LỆNH**\nBạn có thể nhập `e!help + <lệnh>` để xem hướng đẫn sử dụng")
             .addFields (
-                { name: '🐶 Animal', value: `${Animal}`},
-                { name: '🔐 Moderator', value: `${Moderator}`},
-                { name: '📕 Utilities', value: `${Utilities}`},
-                { name: '🎆 Funny', value: `${Funny}`},
-                { name: '⚠️ NSFW', value: `${NSFW}`},
+                {name: 'Inline field title', value: 'Some value here', inline: true },
             )
             .setFooter(`${message.guild.name}`, message.guild.iconURL())
             .setTimestamp()
@@ -54,11 +50,11 @@ module.exports = {
                 .setThumbnail(message.guild.iconURL())
                 .setDescription("Thông tin của các dòng lệnh dưới đây.\nĐối số bắt buộc `<>`, đối số tùy chọn `[]`")
                 .addFields(
-                    { name: '🧾 Name', value: `${command.name}`, inline: true },
-                    { name: '🧾 Category', value: `${command.category}`, inline: true },
-                    { name: '🧾 Aliase(s)', value: `${command.aliases.length < 1 ? 'None' : command.aliases.join(', ')}`, inline: true },
-                    { name: '🧾 Utilisation', value: `${command.utilisation.replace('{prefix}', prefix)}`, inline: true },
-                    { name: '🧾 Description', value: `${command.description}`, inline: false },
+                    // { name: '🧾 Name', value: `${command.name}`, inline: true },
+                    // { name: '🧾 Category', value: `${command.category}`, inline: true },
+                    // { name: '🧾 Aliase(s)', value: `${command.aliases.length < 1 ? 'None' : command.aliases.join(', ')}`, inline: true },
+                    // { name: '🧾 Utilisation', value: `${command.utilisation.replace('{prefix}', prefix)}`, inline: true },
+                    // { name: '🧾 Description', value: `${command.description}`, inline: false },
                 )
                 .setTimestamp()
             message.channel.send({embeds: [HelpPannelEmbed]});
