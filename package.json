@@ -52,6 +52,7 @@
     "jsprim": "^1.4.1",
     "mal-scraper": "^2.11.3",
     "mathjs": "^9.3.0",
+    "mime": "^2.5.2",
     "mime-db": "^1.46.0",
     "mime-types": "^2.1.29",
     "mongoose": "^5.13.9",
@@ -97,8 +98,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "engines":{
-    "node":"16.6.1"
+  "engines": {
+    "node": "16.6.1"
   },
   "bugs": {
     "url": "https://github.com/EdgarIgnite16/EscanorDIscordBot/issues"
