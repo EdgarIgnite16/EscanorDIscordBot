@@ -27,7 +27,7 @@ module.exports = {
             //     // { name: '🎆 Funny', value: `${Funny}`},
             //     // { name: '⚠️ NSFW', value: `${NSFW}`},
             // )
-            .addField('🔐 Moderator', `${Moderator}`)
+            .addField("🔐 Moderator", `${Moderator}`)
             .setFooter(`${message.guild.name}`, message.guild.iconURL())
             .setTimestamp()
             
