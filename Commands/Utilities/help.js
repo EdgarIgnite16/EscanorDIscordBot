@@ -1,5 +1,5 @@
-const { prefix } = require('../../Config/config.json');
 const { MessageEmbed } = require("discord.js");
+const { prefix } = "e!";
 
 module.exports = {
     name: 'help',
