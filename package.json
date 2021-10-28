@@ -2,7 +2,7 @@
   "name": "escanor",
   "version": "1.0.0",
   "description": "just a bot with powerful strength",
-  "main": "index.js",
+  "main": "./index.js",
   "dependencies": {
     "abort-controller": "^3.0.0",
     "ajv": "^6.12.6",
