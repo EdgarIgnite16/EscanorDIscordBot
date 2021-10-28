@@ -18,6 +18,7 @@ module.exports = {
         //     const NSFW = message.client.commands.filter(x => x.category == 'NSFW').map((x) => '`' + x.name + '`').join(', ');
         //     const embedSend = new MessageEmbed()
         //     .setColor("GREEN")
+        //     .setDescription("Nhập Prefix `e! + <lệnh>` để thực thi command\nBạn có thể nhập `e!help + <lệnh>` để xem hướng đẫn sử dụng")      
         //     .setFooter("List Commands")
         //     .setAuthor("Help Commands!")
         //     .addField("😺 Animal", `${Animal}`)
@@ -65,6 +66,7 @@ module.exports = {
             .setColor("GREEN")
             .setFooter("List Commands")
             .setAuthor("Help Commands!")
+            .setDescription("Nhập Prefix `e! + <lệnh>` để thực thi command")
             .addField("😺 Animal", "`cat`, `dog`, `goose`, `kemonomimi`, `lizard`")
             .addField("🔐 Moderator", "`ban`, `kick`, `mute`, `tempmute`, `unmute`")
             .addField("📕 Utilities", "`checkingnpm`, `clear`, `dev`, `emoji-list`, `emoji`, `help`, `math`, `ping`, `poll`, `say`, `search-anime`, `slowmode`, `server-info`, `user-info`, `weather`")
