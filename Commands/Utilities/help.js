@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const { stripIndents } = require("common-tags");
 const { prefix } = "e!";
 
 module.exports = {
@@ -19,7 +20,10 @@ module.exports = {
             .setFooter("List Commands")
             .setAuthor("Help Commands!")
             .setThumbnail(message.guild.iconURL())
-            .setDescription("Nhập Prefix `e! + <lệnh>` để thực thi **LỆNH**\nBạn có thể nhập `e!help + <lệnh>` để xem hướng đẫn sử dụng")
+            .setDescription(stripIndents `Nhập Prefix **e! + <lệnh>** để thực thi **LỆNH**\nBạn có thể nhập **e!help + <lệnh>** để xem hướng đẫn sử dụng
+                🔐 **Moderator**
+                ${Moderator}
+            `)
             // .addFields (
             //     {name: 'Inline field title', value: `${Moderator}`, inline: true },
             //     // { name: '🔐 Moderator', value: `${Moderator}`},
@@ -27,7 +31,6 @@ module.exports = {
             //     // { name: '🎆 Funny', value: `${Funny}`},
             //     // { name: '⚠️ NSFW', value: `${NSFW}`},
             // )
-            .addField("🔐 Moderator", `${Moderator}`)
             .setFooter(`${message.guild.name}`, message.guild.iconURL())
             .setTimestamp()
             
