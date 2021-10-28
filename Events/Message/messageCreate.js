@@ -1,5 +1,5 @@
 const{ Client, Message, MessageEmbed, Collection } = require('discord.js')
-const{ prefix } = require('../../Config/config.json')
+const{ prefix } = "e!";
 
 module.exports = {
     name: "messageCreate",

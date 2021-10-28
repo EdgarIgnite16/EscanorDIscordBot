@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { LogLeaveChannelTest } = require("../../config.json");
+const { LogLeaveChannelTest } = "893031104108462132";
 
 module.exports = {
     name:"guildMemberRemove",

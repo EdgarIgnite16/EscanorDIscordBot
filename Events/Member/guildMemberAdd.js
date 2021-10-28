@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
-const { WelcomeChannelTest } = require("../../config.json");
-const { LogWelcomeChannelTest } = require(".../../config.json");
+const { WelcomeChannelTest } = "893025512509804594";
+const { LogWelcomeChannelTest } = "893031104108462132";
 
 module.exports = {
     name:"guildMemberAdd",
