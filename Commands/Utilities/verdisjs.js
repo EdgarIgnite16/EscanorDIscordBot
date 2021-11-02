@@ -1,8 +1,8 @@
 const { MessageEmbed } = require('discord.js');
 const { stripIndents } = require("common-tags");
 module.exports = {
-    name: 'checkingnpm',
-    aliases: ['check_npm', 'npm_ver'],
+    name: 'verdisjs',
+    aliases: ['dis_ver'],
     category: 'Utilities',
     utilisation: '{prefix}check_npm, {prefix}npm_ver',
     description: "Check Version Discord.js",

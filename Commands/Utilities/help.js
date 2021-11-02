@@ -69,7 +69,7 @@ module.exports = {
             .setDescription("Nhập Prefix `e! + <lệnh>` để thực thi command")
             .addField("😺 Animal", "`cat`, `dog`, `goose`, `kemonomimi`, `lizard`")
             .addField("🔐 Moderator", "`ban`, `kick`, `mute`, `tempmute`, `unmute`")
-            .addField("📕 Utilities", "`checkingnpm`, `clear`, `dev`, `emoji-list`, `emoji`, `help`, `math`, `ping`, `poll`, `say`, `search-anime`, `slowmode`, `server-info`, `user-info`, `weather`")
+            .addField("📕 Utilities", "`clear`, `dev`, `emoji-list`, `emoji`, `help`, `math`, `ping`, `poll`, `say`, `search-anime`, `slowmode`, `server-info`, `user-info`, `verdisjs`, `weather`")
             .addField("🎆 Funny", "`8ball`, `baka`, `cuddle`, `feed`, `gay`, `holo`, `hug`, `iq`, `kiss`, `meme`, `pat`, `poke`, `slap`, `smug`, `tickle`, `waifu`, `wallpaper`")
             .addField("⚠️ NSFW", "`anal`, `blowjob`, `boobs`, `cum`, `ero`, `erofeet`, `femdom`, `foxgirl`, `gasm`, `hentai`, `keta`, `pussy`, `spank`, `tits`, `yuri`")
             .setThumbnail(message.guild.iconURL())
