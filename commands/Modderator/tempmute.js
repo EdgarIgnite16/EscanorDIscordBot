@@ -8,11 +8,6 @@ module.exports = {
   utilisation: '{prefix}tempmute <@username> <time> [reason]',
   description: "Using power or GOD to temp mute member",
   permissions: "MANAGE_MESSAGES",
-      /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
-     */
   execute(message, args, commandName, client, Discord) {
     //e!tempmute @user 1s/m/h/d
       

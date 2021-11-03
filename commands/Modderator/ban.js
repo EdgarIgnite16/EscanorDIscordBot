@@ -7,14 +7,7 @@ module.exports = {
     utilisation: '{prefix}ban <username>',
     description: "Using power or GOD to ban member",
     permissions: "MANAGE_MESSAGES",
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
-     */
     execute(message, args, commandName, client, Discord) {
-        message.delete();
-        const bot = message.guild.me;
         const member = message.mentions.users.first();
         let reason = args.slice(1).join(" ");
 

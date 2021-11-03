@@ -7,13 +7,7 @@ module.exports = {
     utilisation: '{prefix}unmute <username>',
     description: "Using power or GOD to unmute member",
     permissions: 'MANAGE_MESSAGES',
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
-     */
     execute(message, args, commandName, client, Discord) {
-        message.delete();
         const member = message.mentions.users.first();
         // let target = message.guild.members.cache.get(member.id)
         let muterole = message.guild.roles.cache.find(role => role.name === 'Muted');

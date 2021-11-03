@@ -7,13 +7,7 @@ module.exports = {
   utilisation: '{prefix}tempmute <@username> [reason]',
   description: "Using power or GOD to mute member",
   permissions: "MANAGE_MESSAGES",
-  /** 
-   * @param {Client} client 
-   * @param {Message} message 
-   * @param {String[]} args 
-   */
   execute(message, args, commandName, client, Discord) {
-    message.delete();
     const member = message.mentions.users.first();
     let reason = args.slice(1).join(" ");
     let muterole = message.guild.roles.cache.find(role => role.name === 'Muted');
