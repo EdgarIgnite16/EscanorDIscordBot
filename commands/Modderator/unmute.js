@@ -22,7 +22,7 @@ module.exports = {
             const CantMute = new MessageEmbed()
               .setColor("RED")
               .setFooter("Cách sử dụng: {prefix}unmute <@username>")
-              .setDescription("Không tìm thấy đối tượng để unmute !\nBạn phải dùng **@<username>** để thực thi")
+              .setDescription("Không tìm thấy đối tượng để unmute !\nBạn phải dùng **<@username>** để thực thi")
             return message.channel.send({embeds: [CantMute]})
             .then((sent) => {
               setTimeout(() => {
