@@ -15,7 +15,7 @@ module.exports = {
     execute(message, args, commandName, client, Discord) {
         message.delete();
         const bot = message.guild.me;
-        const member = message.mentions.members.first();
+        const member = message.mentions.users.first();
         let reason = args.slice(1).join(" ");
 
         //empty reason
@@ -27,7 +27,7 @@ module.exports = {
             const CantMute = new MessageEmbed()
                 .setColor("RED")
                 .setFooter("Cách sử dụng: {prefix}mute <@username> [reason]")
-                .setDescription("Không tìm thấy đối tượng để kick !\nBạn phải dùng **@<username>** để thực thi")
+                .setDescription("Không tìm thấy đối tượng để ban !\nBạn phải dùng **@<username>** để thực thi")
             return message.channel.send({
                     embeds: [CantMute]
                 })

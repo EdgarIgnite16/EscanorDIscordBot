@@ -14,7 +14,7 @@ module.exports = {
      */
     execute(message, args, commandName, client, Discord) {
         message.delete();
-        const member = message.mentions.members.first();
+        const member = message.mentions.users.first();
         let reason = args.slice(1).join(" ");
 
         //empty reason

@@ -14,7 +14,7 @@ module.exports = {
      */
     execute(message, args, commandName, client, Discord) {
         message.delete();
-        const member = message.mentions.members.first();
+        const member = message.mentions.users.first();
         // let target = message.guild.members.cache.get(member.id)
         let muterole = message.guild.roles.cache.find(role => role.name === 'Muted');
 

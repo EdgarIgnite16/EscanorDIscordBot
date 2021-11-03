@@ -16,7 +16,7 @@ module.exports = {
   execute(message, args, commandName, client, Discord) {
     //e!tempmute @user 1s/m/h/d
       
-      const member = message.mentions.members.first();
+      const member = message.mentions.users.first();
       const mutetime = args[1];
       let reason = args.slice(2).join(" ");
       const muterole = message.guild.roles.cache.find(role => role.name === 'Muted');
@@ -26,7 +26,7 @@ module.exports = {
       const CantMute = new MessageEmbed()
         .setColor("RED")
         .setFooter("Cách sử dụng: {prefix}tempmute <@username> <time> [reason]")
-        .setDescription("Không tìm thấy đối tượng để mute !\nBạn phải dùng @'tag member' để thực thi")
+        .setDescription("Không tìm thấy đối tượng để tempmute !\nBạn phải dùng @'tag member' để thực thi")
       return message.channel.send({embeds: [CantMute]})
       .then((sent) => {
         setTimeout(() => {
